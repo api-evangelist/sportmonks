@@ -1,0 +1,55 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "sportmonks": "https://docs.sportmonks.com/vocab#",
+    "Fixture": "sportmonks:Fixture",
+    "Team": "schema:SportsTeam",
+    "Player": "schema:Person",
+    "League": "schema:SportsOrganization",
+    "Season": "sportmonks:Season",
+    "Venue": "schema:Place",
+    "Livescore": "sportmonks:Livescore",
+    "id": "@id",
+    "name": "schema:name",
+    "starting_at": {
+      "@id": "schema:startDate",
+      "@type": "schema:DateTime"
+    },
+    "league": {
+      "@id": "sportmonks:league",
+      "@type": "@id"
+    },
+    "season": {
+      "@id": "sportmonks:season",
+      "@type": "@id"
+    },
+    "venue": {
+      "@id": "schema:location",
+      "@type": "@id"
+    },
+    "participants": {
+      "@id": "schema:competitor",
+      "@container": "@set"
+    },
+    "scores": {
+      "@id": "sportmonks:scores",
+      "@container": "@set"
+    },
+    "events": {
+      "@id": "sportmonks:events",
+      "@container": "@set"
+    },
+    "country_id": "schema:nationality",
+    "image_path": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+    "date_of_birth": {
+      "@id": "schema:birthDate",
+      "@type": "schema:Date"
+    },
+    "height": "schema:height",
+    "weight": "schema:weight"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://docs.sportmonks.com/schemas/player.json",
+  "title": "Sportmonks Player",
+  "description": "Schema for a Sportmonks Football player entity returned by the /players endpoint.",
+  "type": "object",
+  "required": ["id", "name", "sport_id"],
+  "properties": {
+    "id": { "type": "integer", "description": "Unique player identifier." },
+    "sport_id": { "type": "integer", "description": "Sport identifier." },
+    "country_id": { "type": ["integer", "null"], "description": "Country identifier." },
+    "nationality_id": { "type": ["integer", "null"], "description": "Nationality identifier." },
+    "city_id": { "type": ["integer", "null"], "description": "City of birth identifier." },
+    "position_id": { "type": ["integer", "null"], "description": "Position identifier." },
+    "detailed_position_id": { "type": ["integer", "null"], "description": "Detailed position identifier." },
+    "type_id": { "type": ["integer", "null"], "description": "Player type identifier." },
+    "common_name": { "type": "string", "description": "Common name." },
+    "firstname": { "type": "string", "description": "First name." },
+    "lastname": { "type": "string", "description": "Last name." },
+    "name": { "type": "string", "description": "Full name." },
+    "display_name": { "type": "string", "description": "Display name." },
+    "image_path": { "type": "string", "format": "uri", "description": "Player headshot URL." },
+    "height": { "type": ["integer", "null"], "description": "Height in centimeters." },
+    "weight": { "type": ["integer", "null"], "description": "Weight in kilograms." },
+    "date_of_birth": { "type": ["string", "null"], "format": "date", "description": "Date of birth." },
+    "gender": { "type": "string", "enum": ["male", "female"], "description": "Player gender." }
+  }
+}

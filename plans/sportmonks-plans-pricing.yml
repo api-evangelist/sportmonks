@@ -1,0 +1,180 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Sportmonks
+providerId: sportmonks
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - Football
+  - Sports Data
+  - Subscription
+description: Sportmonks publishes transparent self-serve pricing for the Football API based on the number of leagues a customer
+  chooses, with a forever-free tier covering the Danish Superliga and Scottish Premiership, three flat subscription tiers
+  (Starter, Growth, Pro), and a custom Enterprise tier covering all 2,300+ leagues. A 14-day free trial is available on any
+  paid plan. Pricing is in EUR with discounts for annual billing.
+sources:
+  - https://www.sportmonks.com/football-api/
+  - https://docs.sportmonks.com/football
+notes: Pricing as of 2026-05; Sportmonks reserves the right to adjust tiers. Per-league pricing is unusual in the sports-data
+  market — most peers price per API call or per matched event.
+plans:
+  - id: sportmonks-free
+    name: Free Plan
+    type: free
+    description: Permanent free access to selected leagues for evaluation and hobby projects.
+    entries:
+      - label: Free
+        name: free
+        type: free
+        metric: leagues
+        limit: 2
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 0
+        priceCurrency: EUR
+        userMultiplied: false
+    elements:
+      - name: Danish Superliga
+      - name: Scottish Premiership
+      - name: Livescores
+      - name: Fixtures
+      - name: Standings
+  - id: sportmonks-starter
+    name: Starter
+    type: subscription
+    description: Entry-level paid plan covering 5 leagues of the customer's choice.
+    entries:
+      - label: Monthly
+        name: starter_monthly
+        type: subscription
+        metric: leagues
+        limit: 5
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 29
+        priceCurrency: EUR
+        userMultiplied: false
+      - label: Annual
+        name: starter_annual
+        type: subscription
+        metric: leagues
+        limit: 5
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 24
+        priceCurrency: EUR
+        userMultiplied: false
+    elements:
+      - name: 2,000 API calls per entity per hour
+      - name: Pick Any 5 Leagues Worldwide
+      - name: Full Professional Data Surface
+  - id: sportmonks-growth
+    name: Growth
+    type: subscription
+    description: Mid-tier paid plan covering 30 leagues of the customer's choice.
+    entries:
+      - label: Monthly
+        name: growth_monthly
+        type: subscription
+        metric: leagues
+        limit: 30
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 99
+        priceCurrency: EUR
+        userMultiplied: false
+      - label: Annual
+        name: growth_annual
+        type: subscription
+        metric: leagues
+        limit: 30
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 79
+        priceCurrency: EUR
+        userMultiplied: false
+    elements:
+      - name: 2,500 API calls per entity per hour
+      - name: Pick Any 30 Leagues Worldwide
+      - name: Full Professional Data Surface
+  - id: sportmonks-pro
+    name: Pro
+    type: subscription
+    description: Production-grade paid plan covering 120 leagues of the customer's choice.
+    entries:
+      - label: Monthly
+        name: pro_monthly
+        type: subscription
+        metric: leagues
+        limit: 120
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 249
+        priceCurrency: EUR
+        userMultiplied: false
+      - label: Annual
+        name: pro_annual
+        type: subscription
+        metric: leagues
+        limit: 120
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 199
+        priceCurrency: EUR
+        userMultiplied: false
+    elements:
+      - name: 3,000 API calls per entity per hour
+      - name: Pick Any 120 Leagues Worldwide
+      - name: Full Professional Data Surface
+  - id: sportmonks-enterprise
+    name: Enterprise
+    type: enterprise
+    description: Custom plan covering all available leagues with negotiated SLA and historical data.
+    entries:
+      - label: Custom
+        name: enterprise_custom
+        type: subscription
+        metric: leagues
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: contact sales
+        userMultiplied: false
+    elements:
+      - name: 5,000 API calls per entity per hour
+      - name: All 2,300+ Leagues
+      - name: Historical Data
+      - name: Custom Agreements
+      - name: Negotiated SLA
+  - id: sportmonks-trial
+    name: 14-Day Trial
+    type: trial
+    description: 14-day complimentary trial available on any paid plan.
+    entries:
+      - label: Trial
+        name: trial_14d
+        type: trial
+        metric: days
+        limit: 14
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: 0
+        priceCurrency: EUR
+        userMultiplied: false
+    elements:
+      - name: Full Plan Functionality
+      - name: Cancel Anytime
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com

@@ -1,0 +1,73 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Sportmonks
+providerId: sportmonks
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - Football
+  - Sports Data
+  - FinOps
+  - FOCUS
+description: FOCUS-aligned FinOps mapping for Sportmonks. Unlike most sports-data peers, Sportmonks publishes a self-serve
+  per-league subscription model in EUR. Cost is a function of which leagues a customer selects, not raw API call volume. Enterprise
+  customers move to a contracted annual fee covering all leagues with historical depth.
+sources:
+  - https://www.sportmonks.com/football-api/
+  - https://docs.sportmonks.com/football
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Sportmonks BV
+serviceCategory: Sports Data Subscription
+billingModel:
+  pricingCategory: Subscription Per-League
+  billingFrequency: Monthly or Annual
+  billingCurrency: EUR
+  chargeCategories:
+    - Purchase
+focusColumns:
+  ServiceName: Sportmonks Football API
+  ServiceCategory: Sports Data
+  ProviderName: Sportmonks
+  PublisherName: Sportmonks BV
+  InvoiceIssuerName: Sportmonks BV
+  BillingCurrency: EUR
+meters:
+  - name: subscription_fee
+    description: Recurring fee for the chosen Sportmonks Football plan (Starter / Growth / Pro / Enterprise).
+    unit: subscription
+    aggregation: sum
+    dimensions:
+      - plan_name
+      - billing_period
+      - league_count
+  - name: enterprise_data_license
+    description: Contracted Enterprise license fee covering all leagues and historical depth.
+    unit: contract
+    aggregation: sum
+    dimensions:
+      - contract_id
+      - historical_depth
+principles:
+  - name: Visibility
+    description: Visibility is provided through the customer portal at my.sportmonks.com — invoices, plan status, and league
+      selection are all self-serve. The status page exposes platform health, not per-customer cost.
+  - name: Allocation
+    description: Costs are allocated against whichever product or business unit owns the API token. Multiple tokens can be
+      issued under one account for chargeback by product.
+  - name: Optimization
+    description: Optimization happens at the league-selection step — picking the right leagues for the product rather than
+      tuning request patterns. Per-entity rate limits already protect against runaway polling.
+  - name: Accountability
+    description: Owned by the product owner or developer lead who picks the league set and renews the plan.
+notes: Per-league pricing makes Sportmonks unusually predictable for regional or niche products; teams targeting a single national
+  league can stay on Starter indefinitely.
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com

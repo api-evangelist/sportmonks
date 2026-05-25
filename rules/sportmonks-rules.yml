@@ -1,0 +1,85 @@
+extends:
+  - spectral:oas
+documentationUrl: https://docs.sportmonks.com/
+rules:
+  sportmonks-info-contact:
+    description: Sportmonks API specs must declare a contact (support@sportmonks.com).
+    message: "info.contact is required"
+    severity: error
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+
+  sportmonks-info-license:
+    description: Sportmonks API specs must declare a license block.
+    message: "info.license is required"
+    severity: error
+    given: $.info
+    then:
+      field: license
+      function: truthy
+
+  sportmonks-server-base-url:
+    description: Sportmonks Football servers must point at the v3 base URL.
+    message: "server URL should be https://api.sportmonks.com/v3/football"
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://(api|cricket)\\.sportmonks\\.com(/api)?/(v3|v2\\.0)"
+
+  sportmonks-security-api-token:
+    description: Sportmonks endpoints must accept the API token via Authorization header or api_token query.
+    message: "security must reference ApiTokenHeader or ApiTokenQuery"
+    severity: warn
+    given: $.components.securitySchemes
+    then:
+      function: truthy
+
+  sportmonks-operation-id-camel:
+    description: operationId must be camelCase for consistency with Sportmonks endpoint naming.
+    message: "operationId '{{value}}' should be camelCase"
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].operationId
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]+$"
+
+  sportmonks-operation-summary-title-case:
+    description: operation summary should use Title Case.
+    message: "summary '{{value}}' should be Title Case"
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][A-Za-z0-9]*)( [A-Z][A-Za-z0-9]*)*( By [A-Z][A-Za-z0-9]*)?$"
+
+  sportmonks-tag-defined:
+    description: every operation must declare a tag.
+    message: "operation must have at least one tag"
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: tags
+      function: truthy
+
+  sportmonks-response-200-schema:
+    description: 200 responses must reference a schema (no untyped JSON).
+    message: "response 200 must have a schema"
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].responses.200.content.application/json
+    then:
+      field: schema
+      function: truthy
+
+  sportmonks-include-param-present:
+    description: collection endpoints should accept the include parameter for relational embedding.
+    message: "consider supporting the 'include' query parameter on collection endpoints"
+    severity: hint
+    given: $.paths[?(@property.match(/^\\/(fixtures|leagues|teams|players|livescores|standings)/))].get.parameters
+    then:
+      function: truthy

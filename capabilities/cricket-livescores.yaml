@@ -1,0 +1,120 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sportmonks Cricket API — Livescores
+  description: 'Sportmonks Cricket API — Livescores. 2 operations. Lead operation: List Cricket Livescores.'
+  tags:
+    - Sportmonks
+    - Cricket
+    - Livescores
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      SPORTMONKS_API_TOKEN: SPORTMONKS_API_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: cricket-livescores
+      baseUri: https://cricket.sportmonks.com/api/v2.0
+      description: Sportmonks Cricket Livescores business capability.
+      resources:
+        - name: cricket-livescores
+          path: /livescores
+          operations:
+            - name: listCricketLivescores
+              method: GET
+              description: List Cricket Livescores
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: include
+                  in: query
+                  type: string
+                  required: false
+        - name: cricket-fixture
+          path: /fixtures/{id}
+          operations:
+            - name: getCricketFixture
+              method: GET
+              description: Get Cricket Fixture By ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: integer
+                  required: true
+      authentication:
+        type: apikey
+        key: api_token
+        value: '{{env.SPORTMONKS_API_TOKEN}}'
+        placement: query
+  exposes:
+    - type: rest
+      namespace: cricket-livescores-rest
+      port: 8080
+      description: REST adapter for Sportmonks Cricket Livescores.
+      resources:
+        - path: /v1/cricket/livescores
+          name: cricket-livescores
+          description: REST surface for cricket livescores.
+          operations:
+            - method: GET
+              name: listCricketLivescores
+              description: List Cricket Livescores
+              call: cricket-livescores.listCricketLivescores
+              with:
+                include: rest.include
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/cricket/fixtures/{id}
+          name: cricket-fixture
+          description: REST surface for cricket fixture by id.
+          operations:
+            - method: GET
+              name: getCricketFixture
+              description: Get Cricket Fixture By ID
+              call: cricket-livescores.getCricketFixture
+              with:
+                id: rest.id
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: cricket-livescores-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Sportmonks Cricket Livescores.
+      tools:
+        - name: list-cricket-livescores
+          description: List Cricket Livescores
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: cricket-livescores.listCricketLivescores
+          with:
+            include: tools.include
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-cricket-fixture
+          description: Get Cricket Fixture By ID
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: cricket-livescores.getCricketFixture
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.

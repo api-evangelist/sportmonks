@@ -1,0 +1,84 @@
+name: Sportmonks Vocabulary
+description: Unified taxonomy mapping operational (OpenAPI) and capability (Naftiko) dimensions of the Sportmonks sports data
+  APIs.
+version: '1.0'
+created: '2026-05-25'
+modified: '2026-05-25'
+operational:
+  resources:
+    - name: Fixture
+      description: A scheduled or completed match between two participants.
+    - name: Livescore
+      description: A fixture currently in progress with rolling score and state.
+    - name: League
+      description: A football competition or cup.
+    - name: Season
+      description: A scheduled instance of a league within a calendar window.
+    - name: Standing
+      description: A league-table row for a team within a season.
+    - name: Team
+      description: A football club or national side.
+    - name: Player
+      description: An individual footballer.
+    - name: Coach
+      description: A team manager or head coach.
+    - name: Venue
+      description: A stadium or ground.
+    - name: Referee
+      description: A match official.
+    - name: Prediction
+      description: A probability distribution over fixture outcomes.
+    - name: Odds
+      description: A bookmaker line on a fixture market.
+    - name: Schedule
+      description: A round-by-round plan of fixtures for a season.
+    - name: CricketFixture
+      description: A scheduled or completed cricket match.
+    - name: Race
+      description: A motorsport race event.
+    - name: DriverStanding
+      description: A motorsport driver standing within a season.
+  actions:
+    - name: list
+      description: Return a paginated collection.
+    - name: get
+      description: Return a single entity by identifier.
+    - name: listByDate
+      description: Return a collection filtered by calendar date.
+    - name: listBySeason
+      description: Return a collection scoped to a season.
+    - name: listByFixture
+      description: Return a collection scoped to a fixture.
+    - name: include
+      description: Embed related entities in a response via the include query parameter.
+    - name: filter
+      description: Restrict a collection via the filters query parameter.
+    - name: select
+      description: Choose returned fields via the select query parameter.
+capability:
+  workflows:
+    - name: Football Livescores
+      description: Maintain a real-time view of in-play and recently played football matches.
+    - name: Football Fixtures
+      description: Build a fixture calendar across leagues and dates.
+    - name: Football Standings
+      description: Track league tables across seasons.
+    - name: Football Predictions & Odds
+      description: Combine probabilistic predictions with bookmaker odds for trading and analytics.
+    - name: Cricket Livescores
+      description: Track in-play cricket matches with ball-by-ball detail.
+    - name: Motorsport Races
+      description: Track race events and driver standings across motorsport seasons.
+  personas:
+    - name: Livescore Portal Developer
+      description: Builds public livescore sites consuming fixtures, livescores, and event feeds.
+    - name: Fantasy Sports Backend Engineer
+      description: Consumes player stats, lineups, and event data for fantasy games.
+    - name: Sportsbook Trader
+      description: Consumes pre-match and in-play odds for risk management and trading.
+    - name: Sports Media Editor
+      description: Embeds widgets and pulls structured match data for editorial sites.
+    - name: Club Analyst / Scout
+      description: Consumes player and team statistics for performance review and scouting.
+    - name: iGaming Product Manager
+      description: Designs prediction, fantasy, and casual gaming products around live sports state.

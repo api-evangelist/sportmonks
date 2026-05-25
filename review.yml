@@ -1,0 +1,25 @@
+name: Sportmonks
+description: Sportmonks (Deventer, Netherlands) sports data API provider — football, cricket, motorsport — API review.
+url: https://raw.githubusercontent.com/api-evangelist/sportmonks/refs/heads/main/review.yml
+created: '2026-05-25'
+modified: '2026-05-25'
+reviews:
+  - date: '2026-05-25'
+    rating: 4
+    summary: Sportmonks is a Dutch (Deventer-based) sports data API provider serving 30,000+ users with developer-friendly,
+      transparently priced REST APIs across football (2,300+ leagues), cricket (130+ leagues), and motorsport (Formula 1 +
+      v3 motorsport API replacing the deprecated F1 v1). Unlike most sports-data peers, Sportmonks publishes self-serve EUR
+      pricing gated by the number of leagues a customer selects — Free (Danish Superliga + Scottish Premiership), Starter
+      €29/mo for 5 leagues, Growth €99/mo for 30, Pro €249/mo for 120, Enterprise contracted for all. Rate limits are unusually
+      generous and per-entity: separate hourly buckets for fixtures, teams, livescores, etc., scaling from 180/hr on Free
+      to 5,000/hr on Enterprise. Authentication is straightforward (API token via Authorization header or api_token query
+      parameter) and response shaping via include / filters / select / page is well documented. The community SDK ecosystem
+      is healthy (20+ libraries across Python, PHP/Laravel, TypeScript, Go, Java, R, Ruby) even though Sportmonks does not
+      ship first-party SDKs; first-party Postman collections and embeddable widgets pick up some of that slack. Gaps worth
+      flagging - no public OpenAPI document (the spec in this repo is reconstructed from documentation), the GitHub org is
+      effectively empty (3 unrelated repos), and the historic Formula One v1 API is deprecated with v3 documentation still
+      thin. Net assessment - one of the most predictable, fairly priced, developer-friendly sports data APIs available, especially
+      strong for regional/niche football products that don't need global league coverage.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

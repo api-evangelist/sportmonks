@@ -1,0 +1,36 @@
+{
+  "name": "Sportmonks Fixture Structure",
+  "description": "JSON Structure description of a Sportmonks Football fixture, listing the canonical field set and per-field semantics for downstream type generation.",
+  "version": "3.0",
+  "source": "https://docs.sportmonks.com/football/endpoints-and-entities/entities/fixture",
+  "fields": [
+    { "name": "id", "type": "integer", "required": true, "description": "Unique fixture identifier assigned by Sportmonks." },
+    { "name": "sport_id", "type": "integer", "required": true, "description": "Sport identifier; 1 indicates football." },
+    { "name": "league_id", "type": "integer", "required": true, "description": "League the fixture belongs to." },
+    { "name": "season_id", "type": "integer", "required": true, "description": "Season identifier." },
+    { "name": "stage_id", "type": "integer", "nullable": true, "description": "Stage identifier within the season (group stage, knockout, etc.)." },
+    { "name": "round_id", "type": "integer", "nullable": true, "description": "Round identifier within the season." },
+    { "name": "state_id", "type": "integer", "required": true, "description": "Fixture state (e.g., NS, INPLAY_1ST_HALF, HT, INPLAY_2ND_HALF, FT)." },
+    { "name": "venue_id", "type": "integer", "nullable": true, "description": "Venue identifier." },
+    { "name": "name", "type": "string", "required": true, "description": "Human display name combining participants." },
+    { "name": "starting_at", "type": "string", "format": "date-time", "required": true, "description": "Scheduled kickoff timestamp (ISO 8601 UTC)." },
+    { "name": "starting_at_timestamp", "type": "integer", "description": "Scheduled kickoff timestamp as Unix epoch seconds." },
+    { "name": "result_info", "type": "string", "nullable": true, "description": "Plain-text summary of the result." },
+    { "name": "leg", "type": "string", "nullable": true, "description": "Leg label for multi-leg ties (e.g., 'first leg')." },
+    { "name": "details", "type": "string", "nullable": true, "description": "Additional fixture details." },
+    { "name": "length", "type": "integer", "nullable": true, "description": "Total played length in minutes." },
+    { "name": "placeholder", "type": "boolean", "description": "True when the fixture has unresolved participants." },
+    { "name": "has_odds", "type": "boolean", "description": "True when odds are available for this fixture." },
+    { "name": "has_premium_odds", "type": "boolean", "description": "True when premium odds are available." }
+  ],
+  "relationships": [
+    { "name": "participants", "type": "array<Team>", "include_key": "participants", "description": "Home and away teams." },
+    { "name": "scores", "type": "array<Score>", "include_key": "scores", "description": "Per-period scores." },
+    { "name": "events", "type": "array<Event>", "include_key": "events", "description": "Match events (goals, cards, substitutions)." },
+    { "name": "statistics", "type": "array<Statistic>", "include_key": "statistics", "description": "Per-team match statistics." },
+    { "name": "lineups", "type": "array<Lineup>", "include_key": "lineups", "description": "Starting and bench lineups." },
+    { "name": "venue", "type": "Venue", "include_key": "venue", "description": "Match venue." },
+    { "name": "league", "type": "League", "include_key": "league", "description": "Parent league." },
+    { "name": "season", "type": "Season", "include_key": "season", "description": "Parent season." }
+  ]
+}

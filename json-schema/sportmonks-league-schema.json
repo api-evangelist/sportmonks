@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://docs.sportmonks.com/schemas/league.json",
+  "title": "Sportmonks League",
+  "description": "Schema for a Sportmonks Football league entity returned by the /leagues endpoint.",
+  "type": "object",
+  "required": ["id", "name", "sport_id"],
+  "properties": {
+    "id": { "type": "integer", "description": "Unique league identifier." },
+    "sport_id": { "type": "integer", "description": "Sport identifier." },
+    "country_id": { "type": "integer", "description": "Country identifier." },
+    "name": { "type": "string", "description": "League name." },
+    "active": { "type": "boolean", "description": "True when the league is currently active." },
+    "short_code": { "type": ["string", "null"], "description": "Short league code." },
+    "image_path": { "type": "string", "format": "uri", "description": "League logo URL." },
+    "type": { "type": "string", "description": "League type (league, cup, etc.)." },
+    "sub_type": { "type": ["string", "null"], "description": "League sub-type (domestic, international)." },
+    "last_played_at": { "type": ["string", "null"], "format": "date-time", "description": "Most recent fixture timestamp." },
+    "category": { "type": ["integer", "null"], "description": "Category identifier." },
+    "has_jerseys": { "type": "boolean", "description": "True when jersey data is available." }
+  }
+}

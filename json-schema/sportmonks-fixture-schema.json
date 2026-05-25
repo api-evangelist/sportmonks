@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://docs.sportmonks.com/schemas/fixture.json",
+  "title": "Sportmonks Fixture",
+  "description": "Schema for a Sportmonks Football fixture entity returned by the /fixtures and /livescores endpoints.",
+  "type": "object",
+  "required": ["id", "sport_id", "league_id", "season_id", "starting_at"],
+  "properties": {
+    "id": { "type": "integer", "description": "Unique fixture identifier." },
+    "sport_id": { "type": "integer", "description": "Sport identifier (1 = football)." },
+    "league_id": { "type": "integer", "description": "League the fixture belongs to." },
+    "season_id": { "type": "integer", "description": "Season identifier." },
+    "stage_id": { "type": ["integer", "null"], "description": "Stage identifier where applicable." },
+    "group_id": { "type": ["integer", "null"], "description": "Group identifier for group-stage fixtures." },
+    "aggregate_id": { "type": ["integer", "null"], "description": "Aggregate identifier for two-legged ties." },
+    "round_id": { "type": ["integer", "null"], "description": "Round identifier within the season." },
+    "state_id": { "type": "integer", "description": "Fixture state (e.g., not started, in play, finished)." },
+    "venue_id": { "type": ["integer", "null"], "description": "Venue identifier." },
+    "name": { "type": "string", "description": "Display name of the fixture (e.g., 'Team A vs Team B')." },
+    "starting_at": { "type": "string", "format": "date-time", "description": "Scheduled kickoff timestamp in ISO 8601 UTC." },
+    "starting_at_timestamp": { "type": "integer", "description": "Scheduled kickoff as a Unix timestamp." },
+    "result_info": { "type": ["string", "null"], "description": "Textual result summary, e.g. 'Team A won after extra time'." },
+    "leg": { "type": ["string", "null"], "description": "Leg of a multi-leg tie." },
+    "details": { "type": ["string", "null"], "description": "Additional details about the fixture." },
+    "length": { "type": ["integer", "null"], "description": "Total length of the match in minutes." },
+    "placeholder": { "type": "boolean", "description": "True when fixture participants are not yet known." },
+    "has_odds": { "type": "boolean", "description": "True when odds data is available for the fixture." },
+    "has_premium_odds": { "type": "boolean", "description": "True when premium odds data is available." }
+  }
+}

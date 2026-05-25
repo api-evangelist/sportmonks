@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://docs.sportmonks.com/schemas/team.json",
+  "title": "Sportmonks Team",
+  "description": "Schema for a Sportmonks Football team entity returned by the /teams endpoint.",
+  "type": "object",
+  "required": ["id", "name", "sport_id"],
+  "properties": {
+    "id": { "type": "integer", "description": "Unique team identifier." },
+    "sport_id": { "type": "integer", "description": "Sport identifier." },
+    "country_id": { "type": "integer", "description": "Country identifier the team belongs to." },
+    "venue_id": { "type": ["integer", "null"], "description": "Home venue identifier." },
+    "gender": { "type": "string", "enum": ["male", "female", "mixed"], "description": "Squad gender." },
+    "name": { "type": "string", "description": "Full team name." },
+    "short_code": { "type": ["string", "null"], "description": "3-letter team code." },
+    "image_path": { "type": "string", "format": "uri", "description": "URL to the team crest image." },
+    "founded": { "type": ["integer", "null"], "description": "Year the team was founded." },
+    "type": { "type": "string", "description": "Team type (e.g., domestic, national)." },
+    "placeholder": { "type": "boolean", "description": "True when team is a placeholder." },
+    "last_played_at": { "type": ["string", "null"], "format": "date-time", "description": "Most recent fixture timestamp." }
+  }
+}

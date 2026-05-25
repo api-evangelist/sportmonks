@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://docs.sportmonks.com/schemas/livescore.json",
+  "title": "Sportmonks Livescore",
+  "description": "Schema for a Sportmonks Football livescore record returned by the /livescores endpoints. A livescore is an in-flight fixture with current score and state.",
+  "type": "object",
+  "required": ["id", "state_id", "starting_at"],
+  "properties": {
+    "id": { "type": "integer", "description": "Fixture identifier." },
+    "state_id": { "type": "integer", "description": "Current match state identifier (in play, half time, etc.)." },
+    "league_id": { "type": "integer", "description": "League identifier." },
+    "season_id": { "type": "integer", "description": "Season identifier." },
+    "starting_at": { "type": "string", "format": "date-time", "description": "Scheduled kickoff timestamp." },
+    "name": { "type": "string", "description": "Match display name." },
+    "scores": {
+      "type": "array",
+      "description": "Current scores per period and team.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "participant_id": { "type": "integer", "description": "Team identifier." },
+          "score": {
+            "type": "object",
+            "properties": {
+              "goals": { "type": "integer" },
+              "participant": { "type": "string", "enum": ["home", "away"] }
+            }
+          },
+          "description": { "type": "string", "description": "Score description (e.g., '1ST_HALF', 'CURRENT')." }
+        }
+      }
+    },
+    "periods": {
+      "type": "array",
+      "description": "Active and historical match periods.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "type_id": { "type": "integer" },
+          "started": { "type": ["integer", "null"], "description": "Period start timestamp." },
+          "minutes": { "type": ["integer", "null"], "description": "Period elapsed minutes." }
+        }
+      }
+    }
+  }
+}

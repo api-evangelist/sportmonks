@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sportmonks Football API — Predictions & Odds
+  description: 'Sportmonks Football API — Predictions & Odds. 3 operations. Lead operation: Get Prediction Probabilities For
+    Fixture.'
+  tags:
+    - Sportmonks
+    - Football
+    - Predictions
+    - Odds
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      SPORTMONKS_API_TOKEN: SPORTMONKS_API_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: football-predictions
+      baseUri: https://api.sportmonks.com/v3/football
+      description: Sportmonks Football Predictions and Odds business capability.
+      resources:
+        - name: prediction-probabilities-by-fixture
+          path: /predictions/probabilities/fixtures/{fixtureId}
+          operations:
+            - name: getPredictionByFixture
+              method: GET
+              description: Get Prediction Probabilities For Fixture
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: fixtureId
+                  in: path
+                  type: integer
+                  required: true
+        - name: pre-match-odds-by-fixture
+          path: /odds/pre-match/fixtures/{fixtureId}
+          operations:
+            - name: getPreMatchOddsByFixture
+              method: GET
+              description: Get Pre-Match Odds For Fixture
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: fixtureId
+                  in: path
+                  type: integer
+                  required: true
+        - name: inplay-odds-by-fixture
+          path: /odds/inplay/fixtures/{fixtureId}
+          operations:
+            - name: getInplayOddsByFixture
+              method: GET
+              description: Get In-Play Odds For Fixture
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: fixtureId
+                  in: path
+                  type: integer
+                  required: true
+      authentication:
+        type: apikey
+        key: api_token
+        value: '{{env.SPORTMONKS_API_TOKEN}}'
+        placement: query
+  exposes:
+    - type: rest
+      namespace: football-predictions-rest
+      port: 8080
+      description: REST adapter for Sportmonks Football Predictions and Odds.
+      resources:
+        - path: /v1/predictions/probabilities/fixtures/{fixtureId}
+          name: prediction-probabilities-by-fixture
+          description: REST surface for prediction probabilities.
+          operations:
+            - method: GET
+              name: getPredictionByFixture
+              description: Get Prediction Probabilities For Fixture
+              call: football-predictions.getPredictionByFixture
+              with:
+                fixtureId: rest.fixtureId
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/odds/pre-match/fixtures/{fixtureId}
+          name: pre-match-odds-by-fixture
+          description: REST surface for pre-match odds.
+          operations:
+            - method: GET
+              name: getPreMatchOddsByFixture
+              description: Get Pre-Match Odds For Fixture
+              call: football-predictions.getPreMatchOddsByFixture
+              with:
+                fixtureId: rest.fixtureId
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/odds/inplay/fixtures/{fixtureId}
+          name: inplay-odds-by-fixture
+          description: REST surface for in-play odds.
+          operations:
+            - method: GET
+              name: getInplayOddsByFixture
+              description: Get In-Play Odds For Fixture
+              call: football-predictions.getInplayOddsByFixture
+              with:
+                fixtureId: rest.fixtureId
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: football-predictions-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Sportmonks Football Predictions and Odds.
+      tools:
+        - name: get-prediction-by-fixture
+          description: Get Prediction Probabilities For Fixture
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: football-predictions.getPredictionByFixture
+          with:
+            fixtureId: tools.fixtureId
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-pre-match-odds-by-fixture
+          description: Get Pre-Match Odds For Fixture
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: football-predictions.getPreMatchOddsByFixture
+          with:
+            fixtureId: tools.fixtureId
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-inplay-odds-by-fixture
+          description: Get In-Play Odds For Fixture
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: football-predictions.getInplayOddsByFixture
+          with:
+            fixtureId: tools.fixtureId
+          outputParameters:
+            - type: object
+              mapping: $.

@@ -1,0 +1,69 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Sportmonks
+providerId: sportmonks
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - Football
+  - Rate Limiting
+  - Sports Data
+description: Sportmonks enforces a per-entity hourly rate limit that scales by subscription plan. Each "entity" (fixtures,
+  teams, players, livescores, etc.) gets its own bucket, so a client polling multiple entities does not exhaust a single shared
+  pool. Every response includes a rate_limit object with the entity name, remaining requests, and reset window. The same limit
+  applies regardless of whether the API token is presented via the Authorization header or the api_token query parameter.
+sources:
+  - https://docs.sportmonks.com/football
+  - https://www.sportmonks.com/football-api/
+notes: Per-entity rate limiting is unusual; it lets clients use heavy entities (e.g., livescores) without starving lighter
+  lookups (e.g., leagues, venues).
+responseCodes:
+  throttled: 429
+limits:
+  - name: Free Plan — Per Entity
+    scope: api_key
+    metric: requests_per_hour
+    limit: 180
+    timeFrame: hour
+    notes: Free-plan ceiling per entity. Each entity (fixtures, livescores, teams, etc.) maintains its own counter.
+  - name: Starter — Per Entity
+    scope: api_key
+    metric: requests_per_hour
+    limit: 2000
+    timeFrame: hour
+    notes: 2,000 requests per hour per entity on the Starter plan.
+  - name: Growth — Per Entity
+    scope: api_key
+    metric: requests_per_hour
+    limit: 2500
+    timeFrame: hour
+    notes: 2,500 requests per hour per entity on the Growth plan.
+  - name: Pro — Per Entity
+    scope: api_key
+    metric: requests_per_hour
+    limit: 3000
+    timeFrame: hour
+    notes: 3,000 requests per hour per entity on the Pro plan.
+  - name: Enterprise — Per Entity
+    scope: api_key
+    metric: requests_per_hour
+    limit: 5000
+    timeFrame: hour
+    notes: 5,000 requests per hour per entity on the Enterprise plan.
+policies:
+  - name: Per-Entity Buckets
+    description: Counters are tracked separately for each entity (livescores, fixtures, teams, players, leagues, etc.). Heavy
+      polling of one entity does not exhaust the budget for another.
+  - name: Response Metadata
+    description: Every response includes a rate_limit object containing requested_entity, remaining, and resets_in_seconds.
+      Clients should read these headers/body fields instead of polling blindly.
+  - name: Trial Inherits Plan Limit
+    description: A 14-day trial uses the limits of the paid plan it was started against.
+  - name: Header vs Query Token
+    description: Limits apply per API token; the auth placement (Authorization header vs api_token query parameter) does not
+      affect the bucket.
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com

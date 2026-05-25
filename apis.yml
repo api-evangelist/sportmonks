@@ -1,0 +1,231 @@
+aid: sportmonks
+name: Sportmonks
+description: Sportmonks is a Dutch sports data provider (Deventer, Netherlands) delivering developer-friendly REST APIs for
+  football/soccer, cricket, and motorsport (Formula 1). The platform serves 30,000+ active users and 20,000+ developers building
+  livescore portals, fantasy games, betting platforms, sports media products, and analytics tools. Sportmonks emphasizes fast
+  real-time updates (<15 seconds), 99.9% uptime, transparent per-league pricing, and a forever-free tier covering selected
+  leagues. APIs use JSON over REST with API token authentication via either an Authorization header or an `api_token` query
+  parameter, and support fine-grained response shaping through filters, includes, and field selection.
+url: https://raw.githubusercontent.com/api-evangelist/sportmonks/refs/heads/main/apis.yml
+created: '2026-05-25'
+modified: '2026-05-25'
+specificationVersion: '0.19'
+type: Index
+tags:
+  - Cricket
+  - Data
+  - Developer-Friendly
+  - Football
+  - Formula 1
+  - Livescores
+  - Motorsport
+  - Real-Time
+  - Soccer
+  - Sports
+  - Sports Data
+  - Statistics
+apis:
+  - aid: sportmonks:football-api
+    name: Sportmonks Football API
+    description: REST API for soccer/football data covering 2,500+ leagues worldwide. Provides fixtures, livescores, schedules,
+      standings, statistics, predictions, odds, teams, players, coaches, referees, venues, transfers, topscorers, and news.
+      Supports request optimization via filters, includes, and field selection. Pricing tiers gate the number of leagues accessible,
+      with a forever-free plan covering the Danish Superliga and Scottish Premiership.
+    humanURL: https://docs.sportmonks.com/football
+    baseURL: https://api.sportmonks.com/v3/football
+    tags:
+      - Football
+      - Livescores
+      - Odds
+      - Predictions
+      - Real-Time
+      - Soccer
+      - Statistics
+    properties:
+      - type: Documentation
+        url: https://docs.sportmonks.com/football
+      - type: GettingStarted
+        url: https://docs.sportmonks.com/football/welcome/introduction
+      - type: Authentication
+        url: https://docs.sportmonks.com/football/welcome/authentication
+      - type: APIReference
+        url: https://docs.sportmonks.com/football/endpoints-and-entities
+      - type: ChangeLog
+        url: https://docs.sportmonks.com/football/changelog
+      - type: OpenAPI
+        url: openapi/sportmonks-football-openapi.yml
+      - type: Example
+        url: examples/sportmonks-fixture-example.json
+      - type: Example
+        url: examples/sportmonks-livescore-example.json
+      - type: NaftikoCapability
+        url: capabilities/football-livescores.yaml
+      - type: NaftikoCapability
+        url: capabilities/football-fixtures.yaml
+      - type: NaftikoCapability
+        url: capabilities/football-standings.yaml
+      - type: NaftikoCapability
+        url: capabilities/football-predictions.yaml
+  - aid: sportmonks:cricket-api
+    name: Sportmonks Cricket API
+    description: REST API for cricket data covering 130+ leagues including IPL, international fixtures, and T20 competitions.
+      Provides ball-by-ball commentary, live scoreboards, fixtures, teams, players, venues, officials, seasons, leagues, and
+      detailed player statistics. A Postman collection is published at cricket-postman.sportmonks.com.
+    humanURL: https://docs.sportmonks.com/cricket
+    baseURL: https://cricket.sportmonks.com/api/v2.0
+    tags:
+      - Ball-By-Ball
+      - Cricket
+      - Livescores
+      - Real-Time
+      - Sports Data
+      - Statistics
+    properties:
+      - type: Documentation
+        url: https://docs.sportmonks.com/cricket
+      - type: GettingStarted
+        url: https://docs.sportmonks.com/cricket/welcome/introduction
+      - type: PostmanCollection
+        url: https://cricket-postman.sportmonks.com/
+      - type: NaftikoCapability
+        url: capabilities/cricket-livescores.yaml
+  - aid: sportmonks:motorsport-api
+    name: Sportmonks Motorsport API
+    description: REST API for motorsport data including Formula 1 race results, qualifying, driver and constructor standings,
+      lap times, season schedules, and circuit information. Replaces the deprecated Formula One v1 API with a v3 motorsport-wide
+      surface area.
+    humanURL: https://docs.sportmonks.com/v3/motorsport-api/
+    baseURL: https://api.sportmonks.com/v3/motorsport
+    tags:
+      - Drivers
+      - Formula 1
+      - Motorsport
+      - Race Results
+      - Real-Time
+      - Standings
+    properties:
+      - type: Documentation
+        url: https://docs.sportmonks.com/v3/motorsport-api/
+      - type: GettingStarted
+        url: https://docs.sportmonks.com/v3/motorsport-api/welcome/introduction
+      - type: NaftikoCapability
+        url: capabilities/motorsport-races.yaml
+  - aid: sportmonks:football-widgets
+    name: Sportmonks Football Widgets
+    description: Embeddable JavaScript widgets that render Sportmonks football data as ready-to-use UI components for livescores,
+      league tables, fixtures, and match details. Designed for media sites and football publishers who want to drop in branded
+      visualizations without building front-end components.
+    humanURL: https://www.sportmonks.com/football-widgets/
+    tags:
+      - Embeddable
+      - Football
+      - Widgets
+    properties:
+      - type: Documentation
+        url: https://docs.sportmonks.com/football/widgets
+common:
+  - type: Website
+    url: https://www.sportmonks.com/
+  - type: Portal
+    url: https://my.sportmonks.com
+  - type: Documentation
+    url: https://docs.sportmonks.com/
+  - type: GettingStarted
+    url: https://docs.sportmonks.com/football/welcome/introduction
+  - type: SignUp
+    url: https://my.sportmonks.com/register
+  - type: Pricing
+    url: https://www.sportmonks.com/football-api/
+  - type: Blog
+    url: https://www.sportmonks.com/blogs/
+  - type: StatusPage
+    url: https://www.sportmonks.com/api-status/
+  - type: Support
+    url: mailto:support@sportmonks.com
+  - type: TermsOfService
+    url: https://www.sportmonks.com/terms-of-service/
+  - type: PrivacyPolicy
+    url: https://www.sportmonks.com/privacy-policy/
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/sportmonks/
+  - type: XTwitter
+    url: https://twitter.com/Sportmonks
+  - type: GitHubOrganization
+    url: https://github.com/sportmonks
+  - type: PostmanCollection
+    url: https://cricket-postman.sportmonks.com/
+  - type: JSONSchema
+    url: json-schema/sportmonks-fixture-schema.json
+  - type: JSONSchema
+    url: json-schema/sportmonks-team-schema.json
+  - type: JSONSchema
+    url: json-schema/sportmonks-player-schema.json
+  - type: JSONSchema
+    url: json-schema/sportmonks-livescore-schema.json
+  - type: JSONSchema
+    url: json-schema/sportmonks-league-schema.json
+  - type: JSONStructure
+    url: json-structure/sportmonks-fixture-structure.json
+  - type: JSONLD
+    url: json-ld/sportmonks-context.jsonld
+  - type: SpectralRules
+    url: rules/sportmonks-rules.yml
+  - type: Vocabulary
+    url: vocabulary/sportmonks-vocabulary.yml
+  - type: Plans
+    url: plans/sportmonks-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/sportmonks-rate-limits.yml
+  - type: FinOps
+    url: finops/sportmonks-finops.yml
+  - type: Features
+    data:
+      - name: Real-Time Livescores
+        description: Sub-15-second push of score and match-event updates across covered competitions.
+      - name: Filters, Includes, Field Selection
+        description: Per-request response shaping to keep payloads small and queries expressive without server-side bespoke endpoints.
+      - name: Forever-Free Tier
+        description: Permanent free access to selected leagues (Danish Superliga, Scottish Premiership) for evaluation and hobby use.
+      - name: Per-League Pricing
+        description: Plans gate the number of leagues a customer can pick rather than charging per-call, making cost predictable
+          for niche regional products.
+      - name: 99.9% Uptime SLA
+        description: Published reliability target backed by a public status page.
+      - name: Human Data Verification
+        description: 24/7 human-in-the-loop data processing layered on top of automated feeds.
+      - name: Postman & Widgets
+        description: First-party Postman collections and embeddable football widgets reduce time-to-first-render.
+  - type: UseCases
+    data:
+      - name: Livescore Portals
+        description: Public livescore sites consuming fixtures, livescores, and event feeds.
+      - name: Fantasy Football
+        description: Fantasy game backends consuming player stats, lineups, and event data.
+      - name: Sports Betting
+        description: Sportsbook and trading platforms consuming pre-match and in-play odds.
+      - name: Sports Media
+        description: Editorial sites embedding widgets and pulling structured match data.
+      - name: Football Clubs & Scouting
+        description: Clubs and analysts pulling player and team statistics for performance review.
+      - name: iGaming
+        description: Fantasy, prediction, and casual gaming products powered by live sports state.
+  - type: Integrations
+    data:
+      - name: Postman
+        description: Official Sportmonks Cricket Postman collection at cricket-postman.sportmonks.com.
+      - name: Community SDKs
+        description: 20+ community-maintained client libraries on GitHub across Python, PHP/Laravel, TypeScript, Go, Java, R,
+          and Ruby.
+  - type: Solutions
+    data:
+      - name: Football API
+        description: Core soccer data API covering 2,300+ leagues with tiered league-count pricing.
+      - name: Cricket API
+        description: Cricket data API with ball-by-ball detail across 130+ leagues.
+      - name: Motorsport API
+        description: F1 and broader motorsport data API (v3 successor to the deprecated Formula One v1 API).
+      - name: Football Widgets
+        description: Drop-in embeddable widgets for media and publisher sites.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
