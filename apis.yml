@@ -1,11 +1,13 @@
 aid: sportmonks
 name: Sportmonks
-description: Sportmonks is a Dutch sports data provider (Deventer, Netherlands) delivering developer-friendly REST APIs for
-  football/soccer, cricket, and motorsport (Formula 1). The platform serves 30,000+ active users and 20,000+ developers building
-  livescore portals, fantasy games, betting platforms, sports media products, and analytics tools. Sportmonks emphasizes fast
-  real-time updates (<15 seconds), 99.9% uptime, transparent per-league pricing, and a forever-free tier covering selected
-  leagues. APIs use JSON over REST with API token authentication via either an Authorization header or an `api_token` query
-  parameter, and support fine-grained response shaping through filters, includes, and field selection.
+description: >-
+  Sportmonks is a Dutch sports data provider (Deventer, Netherlands) delivering developer-friendly REST APIs for
+  football/soccer, cricket, and motorsport (Formula 1). The platform serves 30,000+ active users and 20,000+ developers
+  building livescore portals, fantasy games, betting platforms, sports media products, and analytics tools. Sportmonks
+  emphasizes fast real-time updates (<15 seconds), 99.9% uptime, transparent per-league pricing, and a forever-free tier
+  covering selected leagues. APIs use JSON over REST with API token authentication via either an Authorization header or
+  an `api_token` query parameter, and support fine-grained response shaping through filters, includes, and field
+  selection.
 url: https://raw.githubusercontent.com/api-evangelist/sportmonks/refs/heads/main/apis.yml
 created: '2026-05-25'
 modified: '2026-05-25'
@@ -27,10 +29,11 @@ tags:
 apis:
   - aid: sportmonks:football-api
     name: Sportmonks Football API
-    description: REST API for soccer/football data covering 2,500+ leagues worldwide. Provides fixtures, livescores, schedules,
-      standings, statistics, predictions, odds, teams, players, coaches, referees, venues, transfers, topscorers, and news.
-      Supports request optimization via filters, includes, and field selection. Pricing tiers gate the number of leagues accessible,
-      with a forever-free plan covering the Danish Superliga and Scottish Premiership.
+    description: >-
+      REST API for soccer/football data covering 2,500+ leagues worldwide. Provides fixtures, livescores, schedules,
+      standings, statistics, predictions, odds, teams, players, coaches, referees, venues, transfers, topscorers, and
+      news. Supports request optimization via filters, includes, and field selection. Pricing tiers gate the number of
+      leagues accessible, with a forever-free plan covering the Danish Superliga and Scottish Premiership.
     humanURL: https://docs.sportmonks.com/football
     baseURL: https://api.sportmonks.com/v3/football
     tags:
@@ -58,19 +61,12 @@ apis:
         url: examples/sportmonks-fixture-example.json
       - type: Example
         url: examples/sportmonks-livescore-example.json
-      - type: NaftikoCapability
-        url: capabilities/football-livescores.yaml
-      - type: NaftikoCapability
-        url: capabilities/football-fixtures.yaml
-      - type: NaftikoCapability
-        url: capabilities/football-standings.yaml
-      - type: NaftikoCapability
-        url: capabilities/football-predictions.yaml
   - aid: sportmonks:cricket-api
     name: Sportmonks Cricket API
-    description: REST API for cricket data covering 130+ leagues including IPL, international fixtures, and T20 competitions.
-      Provides ball-by-ball commentary, live scoreboards, fixtures, teams, players, venues, officials, seasons, leagues, and
-      detailed player statistics. A Postman collection is published at cricket-postman.sportmonks.com.
+    description: >-
+      REST API for cricket data covering 130+ leagues including IPL, international fixtures, and T20 competitions.
+      Provides ball-by-ball commentary, live scoreboards, fixtures, teams, players, venues, officials, seasons, leagues,
+      and detailed player statistics. A Postman collection is published at cricket-postman.sportmonks.com.
     humanURL: https://docs.sportmonks.com/cricket
     baseURL: https://cricket.sportmonks.com/api/v2.0
     tags:
@@ -87,13 +83,12 @@ apis:
         url: https://docs.sportmonks.com/cricket/welcome/introduction
       - type: PostmanCollection
         url: https://cricket-postman.sportmonks.com/
-      - type: NaftikoCapability
-        url: capabilities/cricket-livescores.yaml
   - aid: sportmonks:motorsport-api
     name: Sportmonks Motorsport API
-    description: REST API for motorsport data including Formula 1 race results, qualifying, driver and constructor standings,
-      lap times, season schedules, and circuit information. Replaces the deprecated Formula One v1 API with a v3 motorsport-wide
-      surface area.
+    description: >-
+      REST API for motorsport data including Formula 1 race results, qualifying, driver and constructor standings, lap
+      times, season schedules, and circuit information. Replaces the deprecated Formula One v1 API with a v3
+      motorsport-wide surface area.
     humanURL: https://docs.sportmonks.com/v3/motorsport-api/
     baseURL: https://api.sportmonks.com/v3/motorsport
     tags:
@@ -108,13 +103,12 @@ apis:
         url: https://docs.sportmonks.com/v3/motorsport-api/
       - type: GettingStarted
         url: https://docs.sportmonks.com/v3/motorsport-api/welcome/introduction
-      - type: NaftikoCapability
-        url: capabilities/motorsport-races.yaml
   - aid: sportmonks:football-widgets
     name: Sportmonks Football Widgets
-    description: Embeddable JavaScript widgets that render Sportmonks football data as ready-to-use UI components for livescores,
-      league tables, fixtures, and match details. Designed for media sites and football publishers who want to drop in branded
-      visualizations without building front-end components.
+    description: >-
+      Embeddable JavaScript widgets that render Sportmonks football data as ready-to-use UI components for livescores,
+      league tables, fixtures, and match details. Designed for media sites and football publishers who want to drop in
+      branded visualizations without building front-end components.
     humanURL: https://www.sportmonks.com/football-widgets/
     tags:
       - Embeddable
@@ -183,11 +177,16 @@ common:
       - name: Real-Time Livescores
         description: Sub-15-second push of score and match-event updates across covered competitions.
       - name: Filters, Includes, Field Selection
-        description: Per-request response shaping to keep payloads small and queries expressive without server-side bespoke endpoints.
+        description: >-
+          Per-request response shaping to keep payloads small and queries expressive without server-side bespoke
+          endpoints.
       - name: Forever-Free Tier
-        description: Permanent free access to selected leagues (Danish Superliga, Scottish Premiership) for evaluation and hobby use.
+        description: >-
+          Permanent free access to selected leagues (Danish Superliga, Scottish Premiership) for evaluation and hobby
+          use.
       - name: Per-League Pricing
-        description: Plans gate the number of leagues a customer can pick rather than charging per-call, making cost predictable
+        description: >-
+          Plans gate the number of leagues a customer can pick rather than charging per-call, making cost predictable
           for niche regional products.
       - name: 99.9% Uptime SLA
         description: Published reliability target backed by a public status page.
@@ -214,8 +213,9 @@ common:
       - name: Postman
         description: Official Sportmonks Cricket Postman collection at cricket-postman.sportmonks.com.
       - name: Community SDKs
-        description: 20+ community-maintained client libraries on GitHub across Python, PHP/Laravel, TypeScript, Go, Java, R,
-          and Ruby.
+        description: >-
+          20+ community-maintained client libraries on GitHub across Python, PHP/Laravel, TypeScript, Go, Java, R, and
+          Ruby.
   - type: Solutions
     data:
       - name: Football API

@@ -1,0 +1,487 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sportmonks Football API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Livescores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Livescores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/livescores",
+            "params": [
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated list of related entities to embed in the response."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated filter expressions applied to the collection."
+              },
+              {
+                "name": "select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in each entity (field selection)."
+              }
+            ]
+          },
+          "docs": "Returns all currently in-play and recently played fixtures."
+        },
+        {
+          "info": {
+            "name": "List In-Play Livescores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/livescores/inplay",
+            "params": [
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated list of related entities to embed in the response."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated filter expressions applied to the collection."
+              }
+            ]
+          },
+          "docs": "Returns only fixtures currently in progress."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Fixtures",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fixtures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/fixtures",
+            "params": [
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated list of related entities to embed in the response."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated filter expressions applied to the collection."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for paginated collection responses."
+              }
+            ]
+          },
+          "docs": "Returns paginated fixtures across leagues and seasons."
+        },
+        {
+          "info": {
+            "name": "Get Fixture By ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/fixtures/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated list of related entities to embed in the response."
+              }
+            ]
+          },
+          "docs": "Returns a single fixture by its identifier."
+        },
+        {
+          "info": {
+            "name": "List Fixtures By Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/fixtures/date/:date",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated list of related entities to embed in the response."
+              }
+            ]
+          },
+          "docs": "Returns fixtures scheduled on a specific calendar date (YYYY-MM-DD)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Leagues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Leagues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/leagues",
+            "params": [
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated list of related entities to embed in the response."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for paginated collection responses."
+              }
+            ]
+          },
+          "docs": "Returns all leagues accessible to the authenticated subscription."
+        },
+        {
+          "info": {
+            "name": "Get League By ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/leagues/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated list of related entities to embed in the response."
+              }
+            ]
+          },
+          "docs": "Returns a single league by identifier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Seasons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Seasons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/seasons"
+          },
+          "docs": "Returns all season records."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Standings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Standings By Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/standings/seasons/:seasonId",
+            "params": [
+              {
+                "name": "seasonId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated list of related entities to embed in the response."
+              }
+            ]
+          },
+          "docs": "Returns the league table for a given season."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Teams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/teams",
+            "params": [
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated list of related entities to embed in the response."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for paginated collection responses."
+              }
+            ]
+          },
+          "docs": "Returns paginated teams across covered leagues."
+        },
+        {
+          "info": {
+            "name": "Get Team By ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/teams/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated list of related entities to embed in the response."
+              }
+            ]
+          },
+          "docs": "Returns a single team by identifier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Players",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Players",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/players",
+            "params": [
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated list of related entities to embed in the response."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for paginated collection responses."
+              }
+            ]
+          },
+          "docs": "Returns paginated players across covered leagues."
+        },
+        {
+          "info": {
+            "name": "Get Player By ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/players/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated list of related entities to embed in the response."
+              }
+            ]
+          },
+          "docs": "Returns a single player profile."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Predictions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Prediction Probabilities For Fixture",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/predictions/probabilities/fixtures/:fixtureId",
+            "params": [
+              {
+                "name": "fixtureId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns outcome probabilities for a fixture."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Odds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Pre-Match Odds For Fixture",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/odds/pre-match/fixtures/:fixtureId",
+            "params": [
+              {
+                "name": "fixtureId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns pre-match bookmaker odds for a fixture."
+        },
+        {
+          "info": {
+            "name": "Get In-Play Odds For Fixture",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/odds/inplay/fixtures/:fixtureId",
+            "params": [
+              {
+                "name": "fixtureId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns live in-play bookmaker odds for a fixture."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Schedules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Schedule By Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/schedules/seasons/:seasonId",
+            "params": [
+              {
+                "name": "seasonId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the round-by-round schedule for a season."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
