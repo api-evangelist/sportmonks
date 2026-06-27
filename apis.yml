@@ -57,9 +57,9 @@ apis:
         url: https://docs.sportmonks.com/football/changelog
       - type: OpenAPI
         url: openapi/sportmonks-football-openapi.yml
-      - type: Example
+      - type: Examples
         url: examples/sportmonks-fixture-example.json
-      - type: Example
+      - type: Examples
         url: examples/sportmonks-livescore-example.json
   - aid: sportmonks:cricket-api
     name: Sportmonks Cricket API
@@ -126,7 +126,7 @@ common:
     url: https://docs.sportmonks.com/
   - type: GettingStarted
     url: https://docs.sportmonks.com/football/welcome/introduction
-  - type: SignUp
+  - type: Signup
     url: https://my.sportmonks.com/register
   - type: Pricing
     url: https://www.sportmonks.com/football-api/
