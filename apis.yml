@@ -118,6 +118,10 @@ apis:
       - type: Documentation
         url: https://docs.sportmonks.com/football/widgets
 common:
+  - type: DomainSecurity
+    url: security/sportmonks-domain-security.yml
+  - type: Authentication
+    url: authentication/sportmonks-authentication.yml
   - type: Website
     url: https://www.sportmonks.com/
   - type: Portal

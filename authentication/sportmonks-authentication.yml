@@ -1,0 +1,24 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/sportmonks-football-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  - query
+schemes:
+- name: ApiTokenHeader
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: Sportmonks API token passed as the value of the Authorization header.
+  sources:
+  - openapi/sportmonks-football-openapi.yml
+- name: ApiTokenQuery
+  type: apiKey
+  in: query
+  parameter: api_token
+  description: Sportmonks API token passed as the api_token query parameter.
+  sources:
+  - openapi/sportmonks-football-openapi.yml
