@@ -5,7 +5,7 @@
       "source": "https://www.sportmonks.com/blogs/feed/",
       "feed_url": "https://www.sportmonks.com/blogs/feed/",
       "title": "",
-      "saved": 9,
+      "saved": 0,
       "method": "feed"
     },
     {
@@ -23,6 +23,6 @@
       "method": "discovered"
     }
   ],
-  "post_count": 39,
-  "fetched": "2026-06-27T12:03:07Z"
+  "post_count": 59,
+  "fetched": "2026-07-11T11:50:51Z"
 }
