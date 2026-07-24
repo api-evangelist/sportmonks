@@ -1,0 +1,240 @@
+openapi: 3.0.3
+info:
+  title: Sportmonks Football Fixtures API
+  description: 'REST API providing soccer/football data including livescores, fixtures, schedules,
+
+    standings, teams, players, predictions, and odds across 2,500+ leagues worldwide.
+
+
+    All endpoints accept the API token either as an `Authorization` header or as an
+
+    `api_token` query parameter. Responses are JSON and support `include`, `filters`,
+
+    and `select` query parameters for response shaping.
+
+    '
+  version: '3.0'
+  contact:
+    name: Sportmonks Support
+    email: support@sportmonks.com
+    url: https://www.sportmonks.com/
+  termsOfService: https://www.sportmonks.com/terms-of-service/
+  license:
+    name: Sportmonks Commercial License
+    url: https://www.sportmonks.com/terms-of-service/
+servers:
+- url: https://api.sportmonks.com/v3/football
+  description: Sportmonks Football API v3 production base URL
+security:
+- ApiTokenHeader: []
+- ApiTokenQuery: []
+tags:
+- name: Fixtures
+  description: Scheduled and historical match fixtures.
+paths:
+  /fixtures:
+    get:
+      operationId: listFixtures
+      summary: List Fixtures
+      description: Returns paginated fixtures across leagues and seasons.
+      tags:
+      - Fixtures
+      parameters:
+      - $ref: '#/components/parameters/Include'
+      - $ref: '#/components/parameters/Filters'
+      - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: A paginated list of fixtures.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FixtureCollection'
+  /fixtures/{id}:
+    get:
+      operationId: getFixture
+      summary: Get Fixture By ID
+      description: Returns a single fixture by its identifier.
+      tags:
+      - Fixtures
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: A single fixture.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FixtureEnvelope'
+  /fixtures/date/{date}:
+    get:
+      operationId: listFixturesByDate
+      summary: List Fixtures By Date
+      description: Returns fixtures scheduled on a specific calendar date (YYYY-MM-DD).
+      tags:
+      - Fixtures
+      parameters:
+      - name: date
+        in: path
+        required: true
+        schema:
+          type: string
+          format: date
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Fixtures on the given date.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FixtureCollection'
+components:
+  schemas:
+    RateLimit:
+      type: object
+      properties:
+        resets_in_seconds:
+          type: integer
+        remaining:
+          type: integer
+        requested_entity:
+          type: string
+    Subscription:
+      type: object
+      properties:
+        meta:
+          type: object
+        plans:
+          type: array
+          items:
+            type: object
+        add_ons:
+          type: array
+          items:
+            type: object
+        widgets:
+          type: array
+          items:
+            type: object
+    Fixture:
+      type: object
+      properties:
+        id:
+          type: integer
+        sport_id:
+          type: integer
+        league_id:
+          type: integer
+        season_id:
+          type: integer
+        stage_id:
+          type: integer
+          nullable: true
+        round_id:
+          type: integer
+          nullable: true
+        state_id:
+          type: integer
+        venue_id:
+          type: integer
+          nullable: true
+        name:
+          type: string
+        starting_at:
+          type: string
+          format: date-time
+        result_info:
+          type: string
+          nullable: true
+        leg:
+          type: string
+          nullable: true
+        details:
+          type: string
+          nullable: true
+        length:
+          type: integer
+          nullable: true
+        placeholder:
+          type: boolean
+        has_odds:
+          type: boolean
+        has_premium_odds:
+          type: boolean
+        starting_at_timestamp:
+          type: integer
+    Pagination:
+      type: object
+      properties:
+        count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        next_page:
+          type: string
+          nullable: true
+        has_more:
+          type: boolean
+    FixtureCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Fixture'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        subscription:
+          $ref: '#/components/schemas/Subscription'
+        rate_limit:
+          $ref: '#/components/schemas/RateLimit'
+    FixtureEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Fixture'
+        subscription:
+          $ref: '#/components/schemas/Subscription'
+        rate_limit:
+          $ref: '#/components/schemas/RateLimit'
+  parameters:
+    Page:
+      name: page
+      in: query
+      description: Page number for paginated collection responses.
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+    Include:
+      name: include
+      in: query
+      description: Semicolon-separated list of related entities to embed in the response.
+      required: false
+      schema:
+        type: string
+    Filters:
+      name: filters
+      in: query
+      description: Semicolon-separated filter expressions applied to the collection.
+      required: false
+      schema:
+        type: string
+  securitySchemes:
+    ApiTokenHeader:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Sportmonks API token passed as the value of the Authorization header.
+    ApiTokenQuery:
+      type: apiKey
+      in: query
+      name: api_token
+      description: Sportmonks API token passed as the api_token query parameter.

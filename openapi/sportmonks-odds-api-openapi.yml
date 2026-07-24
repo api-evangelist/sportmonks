@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: Sportmonks Football Fixtures Odds API
+  description: 'REST API providing soccer/football data including livescores, fixtures, schedules,
+
+    standings, teams, players, predictions, and odds across 2,500+ leagues worldwide.
+
+
+    All endpoints accept the API token either as an `Authorization` header or as an
+
+    `api_token` query parameter. Responses are JSON and support `include`, `filters`,
+
+    and `select` query parameters for response shaping.
+
+    '
+  version: '3.0'
+  contact:
+    name: Sportmonks Support
+    email: support@sportmonks.com
+    url: https://www.sportmonks.com/
+  termsOfService: https://www.sportmonks.com/terms-of-service/
+  license:
+    name: Sportmonks Commercial License
+    url: https://www.sportmonks.com/terms-of-service/
+servers:
+- url: https://api.sportmonks.com/v3/football
+  description: Sportmonks Football API v3 production base URL
+security:
+- ApiTokenHeader: []
+- ApiTokenQuery: []
+tags:
+- name: Odds
+  description: Pre-match and in-play betting odds.
+paths:
+  /odds/pre-match/fixtures/{fixtureId}:
+    get:
+      operationId: getPreMatchOddsByFixture
+      summary: Get Pre-Match Odds For Fixture
+      description: Returns pre-match bookmaker odds for a fixture.
+      tags:
+      - Odds
+      parameters:
+      - name: fixtureId
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Pre-match odds.
+  /odds/inplay/fixtures/{fixtureId}:
+    get:
+      operationId: getInplayOddsByFixture
+      summary: Get In-Play Odds For Fixture
+      description: Returns live in-play bookmaker odds for a fixture.
+      tags:
+      - Odds
+      parameters:
+      - name: fixtureId
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: In-play odds.
+components:
+  securitySchemes:
+    ApiTokenHeader:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Sportmonks API token passed as the value of the Authorization header.
+    ApiTokenQuery:
+      type: apiKey
+      in: query
+      name: api_token
+      description: Sportmonks API token passed as the api_token query parameter.

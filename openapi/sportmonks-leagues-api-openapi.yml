@@ -1,0 +1,161 @@
+openapi: 3.0.3
+info:
+  title: Sportmonks Football Fixtures Leagues API
+  description: 'REST API providing soccer/football data including livescores, fixtures, schedules,
+
+    standings, teams, players, predictions, and odds across 2,500+ leagues worldwide.
+
+
+    All endpoints accept the API token either as an `Authorization` header or as an
+
+    `api_token` query parameter. Responses are JSON and support `include`, `filters`,
+
+    and `select` query parameters for response shaping.
+
+    '
+  version: '3.0'
+  contact:
+    name: Sportmonks Support
+    email: support@sportmonks.com
+    url: https://www.sportmonks.com/
+  termsOfService: https://www.sportmonks.com/terms-of-service/
+  license:
+    name: Sportmonks Commercial License
+    url: https://www.sportmonks.com/terms-of-service/
+servers:
+- url: https://api.sportmonks.com/v3/football
+  description: Sportmonks Football API v3 production base URL
+security:
+- ApiTokenHeader: []
+- ApiTokenQuery: []
+tags:
+- name: Leagues
+  description: Competition metadata across countries and seasons.
+paths:
+  /leagues:
+    get:
+      operationId: listLeagues
+      summary: List Leagues
+      description: Returns all leagues accessible to the authenticated subscription.
+      tags:
+      - Leagues
+      parameters:
+      - $ref: '#/components/parameters/Include'
+      - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: A list of leagues.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeagueCollection'
+  /leagues/{id}:
+    get:
+      operationId: getLeague
+      summary: Get League By ID
+      description: Returns a single league by identifier.
+      tags:
+      - Leagues
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: A single league.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeagueEnvelope'
+components:
+  schemas:
+    LeagueCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/League'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Pagination:
+      type: object
+      properties:
+        count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        next_page:
+          type: string
+          nullable: true
+        has_more:
+          type: boolean
+    LeagueEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/League'
+    League:
+      type: object
+      properties:
+        id:
+          type: integer
+        sport_id:
+          type: integer
+        country_id:
+          type: integer
+        name:
+          type: string
+        active:
+          type: boolean
+        short_code:
+          type: string
+          nullable: true
+        image_path:
+          type: string
+        type:
+          type: string
+        sub_type:
+          type: string
+          nullable: true
+        last_played_at:
+          type: string
+          format: date-time
+          nullable: true
+        category:
+          type: integer
+          nullable: true
+        has_jerseys:
+          type: boolean
+  parameters:
+    Page:
+      name: page
+      in: query
+      description: Page number for paginated collection responses.
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+    Include:
+      name: include
+      in: query
+      description: Semicolon-separated list of related entities to embed in the response.
+      required: false
+      schema:
+        type: string
+  securitySchemes:
+    ApiTokenHeader:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Sportmonks API token passed as the value of the Authorization header.
+    ApiTokenQuery:
+      type: apiKey
+      in: query
+      name: api_token
+      description: Sportmonks API token passed as the api_token query parameter.
