@@ -1,4 +1,18 @@
 aid: sportmonks
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: true
+  try_now: true
+  public: false
+  label: Freemium (free trial) · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/sportmonks.png
 name: Sportmonks
 description: >-
   Sportmonks is a Dutch sports data provider (Deventer, Netherlands) delivering developer-friendly REST APIs for
@@ -27,97 +41,305 @@ tags:
   - Sports Data
   - Statistics
 apis:
-  - aid: sportmonks:football-api
-    name: Sportmonks Football API
-    description: >-
-      REST API for soccer/football data covering 2,500+ leagues worldwide. Provides fixtures, livescores, schedules,
-      standings, statistics, predictions, odds, teams, players, coaches, referees, venues, transfers, topscorers, and
-      news. Supports request optimization via filters, includes, and field selection. Pricing tiers gate the number of
-      leagues accessible, with a forever-free plan covering the Danish Superliga and Scottish Premiership.
-    humanURL: https://docs.sportmonks.com/football
-    baseURL: https://api.sportmonks.com/v3/football
-    tags:
-      - Football
-      - Livescores
-      - Odds
-      - Predictions
-      - Real-Time
-      - Soccer
-      - Statistics
-    properties:
-      - type: Documentation
-        url: https://docs.sportmonks.com/football
-      - type: GettingStarted
-        url: https://docs.sportmonks.com/football/welcome/introduction
-      - type: Authentication
-        url: https://docs.sportmonks.com/football/welcome/authentication
-      - type: APIReference
-        url: https://docs.sportmonks.com/football/endpoints-and-entities
-      - type: ChangeLog
-        url: https://docs.sportmonks.com/football/changelog
-      - type: OpenAPI
-        url: openapi/sportmonks-football-openapi.yml
-      - type: Examples
-        url: examples/sportmonks-fixture-example.json
-      - type: Examples
-        url: examples/sportmonks-livescore-example.json
-  - aid: sportmonks:cricket-api
-    name: Sportmonks Cricket API
-    description: >-
-      REST API for cricket data covering 130+ leagues including IPL, international fixtures, and T20 competitions.
-      Provides ball-by-ball commentary, live scoreboards, fixtures, teams, players, venues, officials, seasons, leagues,
-      and detailed player statistics. A Postman collection is published at cricket-postman.sportmonks.com.
-    humanURL: https://docs.sportmonks.com/cricket
-    baseURL: https://cricket.sportmonks.com/api/v2.0
-    tags:
-      - Ball-By-Ball
-      - Cricket
-      - Livescores
-      - Real-Time
-      - Sports Data
-      - Statistics
-    properties:
-      - type: Documentation
-        url: https://docs.sportmonks.com/cricket
-      - type: GettingStarted
-        url: https://docs.sportmonks.com/cricket/welcome/introduction
-      - type: PostmanCollection
-        url: https://cricket-postman.sportmonks.com/
-  - aid: sportmonks:motorsport-api
-    name: Sportmonks Motorsport API
-    description: >-
-      REST API for motorsport data including Formula 1 race results, qualifying, driver and constructor standings, lap
-      times, season schedules, and circuit information. Replaces the deprecated Formula One v1 API with a v3
-      motorsport-wide surface area.
-    humanURL: https://docs.sportmonks.com/v3/motorsport-api/
-    baseURL: https://api.sportmonks.com/v3/motorsport
-    tags:
-      - Drivers
-      - Formula 1
-      - Motorsport
-      - Race Results
-      - Real-Time
-      - Standings
-    properties:
-      - type: Documentation
-        url: https://docs.sportmonks.com/v3/motorsport-api/
-      - type: GettingStarted
-        url: https://docs.sportmonks.com/v3/motorsport-api/welcome/introduction
-  - aid: sportmonks:football-widgets
-    name: Sportmonks Football Widgets
-    description: >-
-      Embeddable JavaScript widgets that render Sportmonks football data as ready-to-use UI components for livescores,
-      league tables, fixtures, and match details. Designed for media sites and football publishers who want to drop in
-      branded visualizations without building front-end components.
-    humanURL: https://www.sportmonks.com/football-widgets/
-    tags:
-      - Embeddable
-      - Football
-      - Widgets
-    properties:
-      - type: Documentation
-        url: https://docs.sportmonks.com/football/widgets
+- aid: sportmonks:cricket-api
+  name: Sportmonks Cricket API
+  description: >-
+    REST API for cricket data covering 130+ leagues including IPL, international fixtures, and T20 competitions.
+    Provides ball-by-ball commentary, live scoreboards, fixtures, teams, players, venues, officials, seasons,
+    leagues, and detailed player statistics. A Postman collection is published at cricket-postman.sportmonks.com.
+  humanURL: https://docs.sportmonks.com/cricket
+  baseURL: https://cricket.sportmonks.com/api/v2.0
+  tags:
+  - Ball-By-Ball
+  - Cricket
+  - Livescores
+  - Real-Time
+  - Sports Data
+  - Statistics
+  properties:
+  - type: Documentation
+    url: https://docs.sportmonks.com/cricket
+  - type: GettingStarted
+    url: https://docs.sportmonks.com/cricket/welcome/introduction
+  - type: PostmanCollection
+    url: https://cricket-postman.sportmonks.com/
+- aid: sportmonks:motorsport-api
+  name: Sportmonks Motorsport API
+  description: >-
+    REST API for motorsport data including Formula 1 race results, qualifying, driver and constructor
+    standings, lap times, season schedules, and circuit information. Replaces the deprecated Formula One
+    v1 API with a v3 motorsport-wide surface area.
+  humanURL: https://docs.sportmonks.com/v3/motorsport-api/
+  baseURL: https://api.sportmonks.com/v3/motorsport
+  tags:
+  - Drivers
+  - Formula 1
+  - Motorsport
+  - Race Results
+  - Real-Time
+  - Standings
+  properties:
+  - type: Documentation
+    url: https://docs.sportmonks.com/v3/motorsport-api/
+  - type: GettingStarted
+    url: https://docs.sportmonks.com/v3/motorsport-api/welcome/introduction
+- aid: sportmonks:football-widgets
+  name: Sportmonks Football Widgets
+  description: >-
+    Embeddable JavaScript widgets that render Sportmonks football data as ready-to-use UI components for
+    livescores, league tables, fixtures, and match details. Designed for media sites and football publishers
+    who want to drop in branded visualizations without building front-end components.
+  humanURL: https://www.sportmonks.com/football-widgets/
+  tags:
+  - Embeddable
+  - Football
+  - Widgets
+  properties:
+  - type: Documentation
+    url: https://docs.sportmonks.com/football/widgets
+- aid: sportmonks:sportmonks-fixtures-api
+  name: Sportmonks Fixtures API
+  description: Scheduled and historical match fixtures.
+  humanURL: https://docs.sportmonks.com/football
+  baseURL: https://api.sportmonks.com/v3/football
+  tags:
+  - Fixtures
+  properties:
+  - type: OpenAPI
+    url: openapi/sportmonks-fixtures-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sportmonks.com/football
+  - type: GettingStarted
+    url: https://docs.sportmonks.com/football/welcome/introduction
+  - type: Authentication
+    url: https://docs.sportmonks.com/football/welcome/authentication
+  - type: APIReference
+    url: https://docs.sportmonks.com/football/endpoints-and-entities
+  - type: ChangeLog
+    url: https://docs.sportmonks.com/football/changelog
+  - type: Examples
+    url: examples/sportmonks-fixture-example.json
+  - type: Examples
+    url: examples/sportmonks-livescore-example.json
+- aid: sportmonks:sportmonks-leagues-api
+  name: Sportmonks Leagues API
+  description: Competition metadata across countries and seasons.
+  humanURL: https://docs.sportmonks.com/football
+  baseURL: https://api.sportmonks.com/v3/football
+  tags:
+  - Leagues
+  properties:
+  - type: OpenAPI
+    url: openapi/sportmonks-leagues-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sportmonks.com/football
+  - type: GettingStarted
+    url: https://docs.sportmonks.com/football/welcome/introduction
+  - type: Authentication
+    url: https://docs.sportmonks.com/football/welcome/authentication
+  - type: APIReference
+    url: https://docs.sportmonks.com/football/endpoints-and-entities
+  - type: ChangeLog
+    url: https://docs.sportmonks.com/football/changelog
+  - type: Examples
+    url: examples/sportmonks-fixture-example.json
+  - type: Examples
+    url: examples/sportmonks-livescore-example.json
+- aid: sportmonks:sportmonks-livescores-api
+  name: Sportmonks Livescores API
+  description: Real-time score and match-state feeds.
+  humanURL: https://docs.sportmonks.com/football
+  baseURL: https://api.sportmonks.com/v3/football
+  tags:
+  - Livescores
+  properties:
+  - type: OpenAPI
+    url: openapi/sportmonks-livescores-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sportmonks.com/football
+  - type: GettingStarted
+    url: https://docs.sportmonks.com/football/welcome/introduction
+  - type: Authentication
+    url: https://docs.sportmonks.com/football/welcome/authentication
+  - type: APIReference
+    url: https://docs.sportmonks.com/football/endpoints-and-entities
+  - type: ChangeLog
+    url: https://docs.sportmonks.com/football/changelog
+  - type: Examples
+    url: examples/sportmonks-fixture-example.json
+  - type: Examples
+    url: examples/sportmonks-livescore-example.json
+- aid: sportmonks:sportmonks-odds-api
+  name: Sportmonks Odds API
+  description: Pre-match and in-play betting odds.
+  humanURL: https://docs.sportmonks.com/football
+  baseURL: https://api.sportmonks.com/v3/football
+  tags:
+  - Odds
+  properties:
+  - type: OpenAPI
+    url: openapi/sportmonks-odds-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sportmonks.com/football
+  - type: GettingStarted
+    url: https://docs.sportmonks.com/football/welcome/introduction
+  - type: Authentication
+    url: https://docs.sportmonks.com/football/welcome/authentication
+  - type: APIReference
+    url: https://docs.sportmonks.com/football/endpoints-and-entities
+  - type: ChangeLog
+    url: https://docs.sportmonks.com/football/changelog
+  - type: Examples
+    url: examples/sportmonks-fixture-example.json
+  - type: Examples
+    url: examples/sportmonks-livescore-example.json
+- aid: sportmonks:sportmonks-players-api
+  name: Sportmonks Players API
+  description: Player profiles, attributes, and career data.
+  humanURL: https://docs.sportmonks.com/football
+  baseURL: https://api.sportmonks.com/v3/football
+  tags:
+  - Players
+  properties:
+  - type: OpenAPI
+    url: openapi/sportmonks-players-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sportmonks.com/football
+  - type: GettingStarted
+    url: https://docs.sportmonks.com/football/welcome/introduction
+  - type: Authentication
+    url: https://docs.sportmonks.com/football/welcome/authentication
+  - type: APIReference
+    url: https://docs.sportmonks.com/football/endpoints-and-entities
+  - type: ChangeLog
+    url: https://docs.sportmonks.com/football/changelog
+  - type: Examples
+    url: examples/sportmonks-fixture-example.json
+  - type: Examples
+    url: examples/sportmonks-livescore-example.json
+- aid: sportmonks:sportmonks-predictions-api
+  name: Sportmonks Predictions API
+  description: Probabilities and predicted outcomes for upcoming fixtures.
+  humanURL: https://docs.sportmonks.com/football
+  baseURL: https://api.sportmonks.com/v3/football
+  tags:
+  - Predictions
+  properties:
+  - type: OpenAPI
+    url: openapi/sportmonks-predictions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sportmonks.com/football
+  - type: GettingStarted
+    url: https://docs.sportmonks.com/football/welcome/introduction
+  - type: Authentication
+    url: https://docs.sportmonks.com/football/welcome/authentication
+  - type: APIReference
+    url: https://docs.sportmonks.com/football/endpoints-and-entities
+  - type: ChangeLog
+    url: https://docs.sportmonks.com/football/changelog
+  - type: Examples
+    url: examples/sportmonks-fixture-example.json
+  - type: Examples
+    url: examples/sportmonks-livescore-example.json
+- aid: sportmonks:sportmonks-schedules-api
+  name: Sportmonks Schedules API
+  description: Round and stage schedules per season.
+  humanURL: https://docs.sportmonks.com/football
+  baseURL: https://api.sportmonks.com/v3/football
+  tags:
+  - Schedules
+  properties:
+  - type: OpenAPI
+    url: openapi/sportmonks-schedules-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sportmonks.com/football
+  - type: GettingStarted
+    url: https://docs.sportmonks.com/football/welcome/introduction
+  - type: Authentication
+    url: https://docs.sportmonks.com/football/welcome/authentication
+  - type: APIReference
+    url: https://docs.sportmonks.com/football/endpoints-and-entities
+  - type: ChangeLog
+    url: https://docs.sportmonks.com/football/changelog
+  - type: Examples
+    url: examples/sportmonks-fixture-example.json
+  - type: Examples
+    url: examples/sportmonks-livescore-example.json
+- aid: sportmonks:sportmonks-seasons-api
+  name: Sportmonks Seasons API
+  description: Season records and per-season fixture lists.
+  humanURL: https://docs.sportmonks.com/football
+  baseURL: https://api.sportmonks.com/v3/football
+  tags:
+  - Seasons
+  properties:
+  - type: OpenAPI
+    url: openapi/sportmonks-seasons-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sportmonks.com/football
+  - type: GettingStarted
+    url: https://docs.sportmonks.com/football/welcome/introduction
+  - type: Authentication
+    url: https://docs.sportmonks.com/football/welcome/authentication
+  - type: APIReference
+    url: https://docs.sportmonks.com/football/endpoints-and-entities
+  - type: ChangeLog
+    url: https://docs.sportmonks.com/football/changelog
+  - type: Examples
+    url: examples/sportmonks-fixture-example.json
+  - type: Examples
+    url: examples/sportmonks-livescore-example.json
+- aid: sportmonks:sportmonks-standings-api
+  name: Sportmonks Standings API
+  description: League tables and group standings.
+  humanURL: https://docs.sportmonks.com/football
+  baseURL: https://api.sportmonks.com/v3/football
+  tags:
+  - Standings
+  properties:
+  - type: OpenAPI
+    url: openapi/sportmonks-standings-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sportmonks.com/football
+  - type: GettingStarted
+    url: https://docs.sportmonks.com/football/welcome/introduction
+  - type: Authentication
+    url: https://docs.sportmonks.com/football/welcome/authentication
+  - type: APIReference
+    url: https://docs.sportmonks.com/football/endpoints-and-entities
+  - type: ChangeLog
+    url: https://docs.sportmonks.com/football/changelog
+  - type: Examples
+    url: examples/sportmonks-fixture-example.json
+  - type: Examples
+    url: examples/sportmonks-livescore-example.json
+- aid: sportmonks:sportmonks-teams-api
+  name: Sportmonks Teams API
+  description: Team profiles, squads, and metadata.
+  humanURL: https://docs.sportmonks.com/football
+  baseURL: https://api.sportmonks.com/v3/football
+  tags:
+  - Teams
+  properties:
+  - type: OpenAPI
+    url: openapi/sportmonks-teams-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sportmonks.com/football
+  - type: GettingStarted
+    url: https://docs.sportmonks.com/football/welcome/introduction
+  - type: Authentication
+    url: https://docs.sportmonks.com/football/welcome/authentication
+  - type: APIReference
+    url: https://docs.sportmonks.com/football/endpoints-and-entities
+  - type: ChangeLog
+    url: https://docs.sportmonks.com/football/changelog
+  - type: Examples
+    url: examples/sportmonks-fixture-example.json
+  - type: Examples
+    url: examples/sportmonks-livescore-example.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/sportmonks/overview
   - type: AgenticAccess
     url: agentic-access/sportmonks-agentic-access.yml
   - type: DomainSecurity
