@@ -1,0 +1,264 @@
+{
+  "info": {
+    "_postman_id": "c31d3442-c98a-45ce-87b3-1cf320df4eff",
+    "name": "Sportmonks Football Fixtures Livescores API",
+    "description": "REST API providing soccer/football data including livescores, fixtures, schedules,\nstandings, teams, players, predictions, and odds across 2,500+ leagues worldwide.\n\nAll endpoints accept the API token either as an `Authorization` header or as an\n`api_token` query parameter. Responses are JSON and support `include`, `filters`,\nand `select` query parameters for response shaping.\n\n\nContact Support:\n Name: Sportmonks Support\n Email: support@sportmonks.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:00:41.000Z",
+    "updatedAt": "2026-07-28T03:00:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c31d3442-c98a-45ce-87b3-1cf320df4eff"
+  },
+  "item": [
+    {
+      "name": "livescores",
+      "item": [
+        {
+          "name": "inplay",
+          "item": [
+            {
+              "name": "List In-Play Livescores",
+              "id": "eecbe8d5-e027-4abe-86a6-41f2aba92836",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/livescores/inplay?include=<string>&filters=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "livescores",
+                    "inplay"
+                  ],
+                  "query": [
+                    {
+                      "description": "Semicolon-separated list of related entities to embed in the response.",
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Semicolon-separated filter expressions applied to the collection.",
+                      "key": "filters",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns only fixtures currently in progress."
+              },
+              "response": [
+                {
+                  "id": "8e71ff3a-39c9-495c-8157-3c86892c1122",
+                  "name": "A list of in-play fixtures.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/livescores/inplay?include=<string>&filters=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "livescores",
+                        "inplay"
+                      ],
+                      "query": [
+                        {
+                          "description": "Semicolon-separated list of related entities to embed in the response.",
+                          "key": "include",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Semicolon-separated filter expressions applied to the collection.",
+                          "key": "filters",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"sport_id\": \"<integer>\",\n      \"league_id\": \"<integer>\",\n      \"season_id\": \"<integer>\",\n      \"stage_id\": \"<integer>\",\n      \"round_id\": \"<integer>\",\n      \"state_id\": \"<integer>\",\n      \"venue_id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"starting_at\": \"<dateTime>\",\n      \"result_info\": \"<string>\",\n      \"leg\": \"<string>\",\n      \"details\": \"<string>\",\n      \"length\": \"<integer>\",\n      \"placeholder\": \"<boolean>\",\n      \"has_odds\": \"<boolean>\",\n      \"has_premium_odds\": \"<boolean>\",\n      \"starting_at_timestamp\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"sport_id\": \"<integer>\",\n      \"league_id\": \"<integer>\",\n      \"season_id\": \"<integer>\",\n      \"stage_id\": \"<integer>\",\n      \"round_id\": \"<integer>\",\n      \"state_id\": \"<integer>\",\n      \"venue_id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"starting_at\": \"<dateTime>\",\n      \"result_info\": \"<string>\",\n      \"leg\": \"<string>\",\n      \"details\": \"<string>\",\n      \"length\": \"<integer>\",\n      \"placeholder\": \"<boolean>\",\n      \"has_odds\": \"<boolean>\",\n      \"has_premium_odds\": \"<boolean>\",\n      \"starting_at_timestamp\": \"<integer>\"\n    }\n  ],\n  \"pagination\": {\n    \"count\": \"<integer>\",\n    \"per_page\": \"<integer>\",\n    \"current_page\": \"<integer>\",\n    \"next_page\": \"<string>\",\n    \"has_more\": \"<boolean>\"\n  },\n  \"subscription\": {\n    \"meta\": {}\n  },\n  \"rate_limit\": {\n    \"resets_in_seconds\": \"<integer>\",\n    \"remaining\": \"<integer>\",\n    \"requested_entity\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T03:00:42.000Z",
+                  "updatedAt": "2026-07-28T03:00:42.000Z",
+                  "uid": "35240-8e71ff3a-39c9-495c-8157-3c86892c1122"
+                }
+              ],
+              "createdAt": "2026-07-28T03:00:42.000Z",
+              "updatedAt": "2026-07-28T03:00:42.000Z",
+              "uid": "35240-eecbe8d5-e027-4abe-86a6-41f2aba92836"
+            }
+          ],
+          "id": "2a3bb857-26ed-4995-b04d-83a3358e2844",
+          "createdAt": "2026-07-28T03:00:42.000Z",
+          "updatedAt": "2026-07-28T03:00:42.000Z",
+          "uid": "35240-2a3bb857-26ed-4995-b04d-83a3358e2844"
+        },
+        {
+          "name": "List Livescores",
+          "id": "38b1e05c-cd23-4ec6-bffc-f6bfe21bd9fb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/livescores?include=<string>&filters=<string>&select=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "livescores"
+              ],
+              "query": [
+                {
+                  "description": "Semicolon-separated list of related entities to embed in the response.",
+                  "key": "include",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Semicolon-separated filter expressions applied to the collection.",
+                  "key": "filters",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Comma-separated list of fields to include in each entity (field selection).",
+                  "key": "select",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns all currently in-play and recently played fixtures."
+          },
+          "response": [
+            {
+              "id": "cbc07763-3d5a-4fc7-b415-0c4b6195fba4",
+              "name": "A list of livescores.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/livescores?include=<string>&filters=<string>&select=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "livescores"
+                  ],
+                  "query": [
+                    {
+                      "description": "Semicolon-separated list of related entities to embed in the response.",
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Semicolon-separated filter expressions applied to the collection.",
+                      "key": "filters",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of fields to include in each entity (field selection).",
+                      "key": "select",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"sport_id\": \"<integer>\",\n      \"league_id\": \"<integer>\",\n      \"season_id\": \"<integer>\",\n      \"stage_id\": \"<integer>\",\n      \"round_id\": \"<integer>\",\n      \"state_id\": \"<integer>\",\n      \"venue_id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"starting_at\": \"<dateTime>\",\n      \"result_info\": \"<string>\",\n      \"leg\": \"<string>\",\n      \"details\": \"<string>\",\n      \"length\": \"<integer>\",\n      \"placeholder\": \"<boolean>\",\n      \"has_odds\": \"<boolean>\",\n      \"has_premium_odds\": \"<boolean>\",\n      \"starting_at_timestamp\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"sport_id\": \"<integer>\",\n      \"league_id\": \"<integer>\",\n      \"season_id\": \"<integer>\",\n      \"stage_id\": \"<integer>\",\n      \"round_id\": \"<integer>\",\n      \"state_id\": \"<integer>\",\n      \"venue_id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"starting_at\": \"<dateTime>\",\n      \"result_info\": \"<string>\",\n      \"leg\": \"<string>\",\n      \"details\": \"<string>\",\n      \"length\": \"<integer>\",\n      \"placeholder\": \"<boolean>\",\n      \"has_odds\": \"<boolean>\",\n      \"has_premium_odds\": \"<boolean>\",\n      \"starting_at_timestamp\": \"<integer>\"\n    }\n  ],\n  \"pagination\": {\n    \"count\": \"<integer>\",\n    \"per_page\": \"<integer>\",\n    \"current_page\": \"<integer>\",\n    \"next_page\": \"<string>\",\n    \"has_more\": \"<boolean>\"\n  },\n  \"subscription\": {\n    \"meta\": {}\n  },\n  \"rate_limit\": {\n    \"resets_in_seconds\": \"<integer>\",\n    \"remaining\": \"<integer>\",\n    \"requested_entity\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T03:00:42.000Z",
+              "updatedAt": "2026-07-28T03:00:42.000Z",
+              "uid": "35240-cbc07763-3d5a-4fc7-b415-0c4b6195fba4"
+            }
+          ],
+          "createdAt": "2026-07-28T03:00:42.000Z",
+          "updatedAt": "2026-07-28T03:00:42.000Z",
+          "uid": "35240-38b1e05c-cd23-4ec6-bffc-f6bfe21bd9fb"
+        }
+      ],
+      "id": "ab8652bf-8bc5-4fd7-a9c3-e0667a5f63a9",
+      "createdAt": "2026-07-28T03:00:42.000Z",
+      "updatedAt": "2026-07-28T03:00:42.000Z",
+      "uid": "35240-ab8652bf-8bc5-4fd7-a9c3-e0667a5f63a9"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sportmonks.com/v3/football"
+    }
+  ]
+}

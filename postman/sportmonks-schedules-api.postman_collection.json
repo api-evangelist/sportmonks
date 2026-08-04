@@ -1,0 +1,143 @@
+{
+  "info": {
+    "_postman_id": "007e22fe-a7ad-4788-bb25-2e6a387bd7d9",
+    "name": "Sportmonks Football Fixtures Schedules API",
+    "description": "REST API providing soccer/football data including livescores, fixtures, schedules,\nstandings, teams, players, predictions, and odds across 2,500+ leagues worldwide.\n\nAll endpoints accept the API token either as an `Authorization` header or as an\n`api_token` query parameter. Responses are JSON and support `include`, `filters`,\nand `select` query parameters for response shaping.\n\n\nContact Support:\n Name: Sportmonks Support\n Email: support@sportmonks.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:00:48.000Z",
+    "updatedAt": "2026-07-28T03:00:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-007e22fe-a7ad-4788-bb25-2e6a387bd7d9"
+  },
+  "item": [
+    {
+      "name": "schedules",
+      "item": [
+        {
+          "name": "seasons",
+          "item": [
+            {
+              "name": "{seasonId}",
+              "item": [
+                {
+                  "name": "Get Schedule By Season",
+                  "id": "7c51fdd3-0ffb-4609-9ab0-77d8cd1b9a27",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/schedules/seasons/:seasonId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "schedules",
+                        "seasons",
+                        ":seasonId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6eeee81b-08d3-48ab-817a-5ca92a23d3c0",
+                          "key": "seasonId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Returns the round-by-round schedule for a season."
+                  },
+                  "response": [
+                    {
+                      "id": "854e5e81-7901-4315-a490-306100da5096",
+                      "name": "Season schedule.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/schedules/seasons/:seasonId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "schedules",
+                            "seasons",
+                            ":seasonId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "seasonId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:49.000Z",
+                      "updatedAt": "2026-07-28T03:00:49.000Z",
+                      "uid": "35240-854e5e81-7901-4315-a490-306100da5096"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:00:49.000Z",
+                  "updatedAt": "2026-07-28T03:00:49.000Z",
+                  "uid": "35240-7c51fdd3-0ffb-4609-9ab0-77d8cd1b9a27"
+                }
+              ],
+              "id": "70dd84c1-f752-45ce-81df-3479c8cc0ea9",
+              "createdAt": "2026-07-28T03:00:49.000Z",
+              "updatedAt": "2026-07-28T03:00:49.000Z",
+              "uid": "35240-70dd84c1-f752-45ce-81df-3479c8cc0ea9"
+            }
+          ],
+          "id": "7e37ffb3-99c9-4d04-8111-7d7763dbe803",
+          "createdAt": "2026-07-28T03:00:49.000Z",
+          "updatedAt": "2026-07-28T03:00:49.000Z",
+          "uid": "35240-7e37ffb3-99c9-4d04-8111-7d7763dbe803"
+        }
+      ],
+      "id": "18629107-2b05-4d28-8bda-1b546d9fdbcc",
+      "createdAt": "2026-07-28T03:00:49.000Z",
+      "updatedAt": "2026-07-28T03:00:49.000Z",
+      "uid": "35240-18629107-2b05-4d28-8bda-1b546d9fdbcc"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sportmonks.com/v3/football"
+    }
+  ]
+}

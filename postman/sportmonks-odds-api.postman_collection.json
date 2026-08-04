@@ -1,0 +1,259 @@
+{
+  "info": {
+    "_postman_id": "c21a4fa2-07c3-4bf2-bc96-ec1a89dddc19",
+    "name": "Sportmonks Football Fixtures Odds API",
+    "description": "REST API providing soccer/football data including livescores, fixtures, schedules,\nstandings, teams, players, predictions, and odds across 2,500+ leagues worldwide.\n\nAll endpoints accept the API token either as an `Authorization` header or as an\n`api_token` query parameter. Responses are JSON and support `include`, `filters`,\nand `select` query parameters for response shaping.\n\n\nContact Support:\n Name: Sportmonks Support\n Email: support@sportmonks.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:00:43.000Z",
+    "updatedAt": "2026-07-28T03:00:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c21a4fa2-07c3-4bf2-bc96-ec1a89dddc19"
+  },
+  "item": [
+    {
+      "name": "odds",
+      "item": [
+        {
+          "name": "pre-match",
+          "item": [
+            {
+              "name": "fixtures",
+              "item": [
+                {
+                  "name": "{fixtureId}",
+                  "item": [
+                    {
+                      "name": "Get Pre-Match Odds For Fixture",
+                      "id": "43fc9b16-d3b2-47dd-b87a-f8e1f38b2f4f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/odds/pre-match/fixtures/:fixtureId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "odds",
+                            "pre-match",
+                            "fixtures",
+                            ":fixtureId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "336feb8d-97da-4f68-9750-f8aaedc8a058",
+                              "key": "fixtureId",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns pre-match bookmaker odds for a fixture."
+                      },
+                      "response": [
+                        {
+                          "id": "b6e713b1-dccf-4c60-a2d8-31fd3b9c385e",
+                          "name": "Pre-match odds.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/odds/pre-match/fixtures/:fixtureId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "odds",
+                                "pre-match",
+                                "fixtures",
+                                ":fixtureId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "fixtureId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:00:43.000Z",
+                          "updatedAt": "2026-07-28T03:00:43.000Z",
+                          "uid": "35240-b6e713b1-dccf-4c60-a2d8-31fd3b9c385e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:00:43.000Z",
+                      "updatedAt": "2026-07-28T03:00:43.000Z",
+                      "uid": "35240-43fc9b16-d3b2-47dd-b87a-f8e1f38b2f4f"
+                    }
+                  ],
+                  "id": "1b1e447e-c733-4981-a8b7-1286939d1497",
+                  "createdAt": "2026-07-28T03:00:43.000Z",
+                  "updatedAt": "2026-07-28T03:00:43.000Z",
+                  "uid": "35240-1b1e447e-c733-4981-a8b7-1286939d1497"
+                }
+              ],
+              "id": "fa039344-8cd1-44e8-b771-1b1f5c4bc906",
+              "createdAt": "2026-07-28T03:00:43.000Z",
+              "updatedAt": "2026-07-28T03:00:43.000Z",
+              "uid": "35240-fa039344-8cd1-44e8-b771-1b1f5c4bc906"
+            }
+          ],
+          "id": "2618859e-4d4b-4480-9e12-9883170f8ba6",
+          "createdAt": "2026-07-28T03:00:43.000Z",
+          "updatedAt": "2026-07-28T03:00:43.000Z",
+          "uid": "35240-2618859e-4d4b-4480-9e12-9883170f8ba6"
+        },
+        {
+          "name": "inplay",
+          "item": [
+            {
+              "name": "fixtures",
+              "item": [
+                {
+                  "name": "{fixtureId}",
+                  "item": [
+                    {
+                      "name": "Get In-Play Odds For Fixture",
+                      "id": "094148e5-468f-4c11-af30-34b893b8fb25",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/odds/inplay/fixtures/:fixtureId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "odds",
+                            "inplay",
+                            "fixtures",
+                            ":fixtureId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ae024bbd-f1ad-4fa9-b77d-115a98f6f5d5",
+                              "key": "fixtureId",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns live in-play bookmaker odds for a fixture."
+                      },
+                      "response": [
+                        {
+                          "id": "b82566da-c56f-42fe-8875-43cdf73ddce6",
+                          "name": "In-play odds.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/odds/inplay/fixtures/:fixtureId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "odds",
+                                "inplay",
+                                "fixtures",
+                                ":fixtureId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "fixtureId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:00:43.000Z",
+                          "updatedAt": "2026-07-28T03:00:43.000Z",
+                          "uid": "35240-b82566da-c56f-42fe-8875-43cdf73ddce6"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:00:43.000Z",
+                      "updatedAt": "2026-07-28T03:00:43.000Z",
+                      "uid": "35240-094148e5-468f-4c11-af30-34b893b8fb25"
+                    }
+                  ],
+                  "id": "893ba8a3-07fb-4741-9c4d-529f1466c237",
+                  "createdAt": "2026-07-28T03:00:43.000Z",
+                  "updatedAt": "2026-07-28T03:00:43.000Z",
+                  "uid": "35240-893ba8a3-07fb-4741-9c4d-529f1466c237"
+                }
+              ],
+              "id": "2252f222-f584-46d0-9e48-800763d4a79e",
+              "createdAt": "2026-07-28T03:00:43.000Z",
+              "updatedAt": "2026-07-28T03:00:43.000Z",
+              "uid": "35240-2252f222-f584-46d0-9e48-800763d4a79e"
+            }
+          ],
+          "id": "0f330c93-ab3a-4b9d-8911-baea3cdfd4c7",
+          "createdAt": "2026-07-28T03:00:43.000Z",
+          "updatedAt": "2026-07-28T03:00:43.000Z",
+          "uid": "35240-0f330c93-ab3a-4b9d-8911-baea3cdfd4c7"
+        }
+      ],
+      "id": "4ea14dc1-f48a-4dbf-a527-faf509f64bda",
+      "createdAt": "2026-07-28T03:00:43.000Z",
+      "updatedAt": "2026-07-28T03:00:43.000Z",
+      "uid": "35240-4ea14dc1-f48a-4dbf-a527-faf509f64bda"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sportmonks.com/v3/football"
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "info": {
+    "_postman_id": "296f640f-ddb7-45f5-bee7-fda8713e23d1",
+    "name": "Sportmonks Football Fixtures Leagues API",
+    "description": "REST API providing soccer/football data including livescores, fixtures, schedules,\nstandings, teams, players, predictions, and odds across 2,500+ leagues worldwide.\n\nAll endpoints accept the API token either as an `Authorization` header or as an\n`api_token` query parameter. Responses are JSON and support `include`, `filters`,\nand `select` query parameters for response shaping.\n\n\nContact Support:\n Name: Sportmonks Support\n Email: support@sportmonks.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:00:40.000Z",
+    "updatedAt": "2026-07-28T03:00:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-296f640f-ddb7-45f5-bee7-fda8713e23d1"
+  },
+  "item": [
+    {
+      "name": "leagues",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get League By ID",
+              "id": "72e1961d-d191-44af-b095-34dc22949492",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/leagues/:id?include=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "leagues",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Semicolon-separated list of related entities to embed in the response.",
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "bf9fbded-720f-440c-9ee0-ecd27bbf7fce",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Returns a single league by identifier."
+              },
+              "response": [
+                {
+                  "id": "2635520e-fb8b-4618-b995-07662c51ad07",
+                  "name": "A single league.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/leagues/:id?include=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "leagues",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Semicolon-separated list of related entities to embed in the response.",
+                          "key": "include",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"sport_id\": \"<integer>\",\n    \"country_id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"short_code\": \"<string>\",\n    \"image_path\": \"<string>\",\n    \"type\": \"<string>\",\n    \"sub_type\": \"<string>\",\n    \"last_played_at\": \"<dateTime>\",\n    \"category\": \"<integer>\",\n    \"has_jerseys\": \"<boolean>\"\n  }\n}",
+                  "createdAt": "2026-07-28T03:00:40.000Z",
+                  "updatedAt": "2026-07-28T03:00:40.000Z",
+                  "uid": "35240-2635520e-fb8b-4618-b995-07662c51ad07"
+                }
+              ],
+              "createdAt": "2026-07-28T03:00:40.000Z",
+              "updatedAt": "2026-07-28T03:00:40.000Z",
+              "uid": "35240-72e1961d-d191-44af-b095-34dc22949492"
+            }
+          ],
+          "id": "1f00cb3b-514d-4b70-9822-7187dabb4f7c",
+          "createdAt": "2026-07-28T03:00:40.000Z",
+          "updatedAt": "2026-07-28T03:00:40.000Z",
+          "uid": "35240-1f00cb3b-514d-4b70-9822-7187dabb4f7c"
+        },
+        {
+          "name": "List Leagues",
+          "id": "6f68a9bd-e9e2-41a0-a510-608f55e387bd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/leagues?include=<string>&page=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "leagues"
+              ],
+              "query": [
+                {
+                  "description": "Semicolon-separated list of related entities to embed in the response.",
+                  "key": "include",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Page number for paginated collection responses.",
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Returns all leagues accessible to the authenticated subscription."
+          },
+          "response": [
+            {
+              "id": "28aebae5-e471-4014-85ec-77ffa05d4c35",
+              "name": "A list of leagues.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/leagues?include=<string>&page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "leagues"
+                  ],
+                  "query": [
+                    {
+                      "description": "Semicolon-separated list of related entities to embed in the response.",
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page number for paginated collection responses.",
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"sport_id\": \"<integer>\",\n      \"country_id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"short_code\": \"<string>\",\n      \"image_path\": \"<string>\",\n      \"type\": \"<string>\",\n      \"sub_type\": \"<string>\",\n      \"last_played_at\": \"<dateTime>\",\n      \"category\": \"<integer>\",\n      \"has_jerseys\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"sport_id\": \"<integer>\",\n      \"country_id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"short_code\": \"<string>\",\n      \"image_path\": \"<string>\",\n      \"type\": \"<string>\",\n      \"sub_type\": \"<string>\",\n      \"last_played_at\": \"<dateTime>\",\n      \"category\": \"<integer>\",\n      \"has_jerseys\": \"<boolean>\"\n    }\n  ],\n  \"pagination\": {\n    \"count\": \"<integer>\",\n    \"per_page\": \"<integer>\",\n    \"current_page\": \"<integer>\",\n    \"next_page\": \"<string>\",\n    \"has_more\": \"<boolean>\"\n  }\n}",
+              "createdAt": "2026-07-28T03:00:40.000Z",
+              "updatedAt": "2026-07-28T03:00:40.000Z",
+              "uid": "35240-28aebae5-e471-4014-85ec-77ffa05d4c35"
+            }
+          ],
+          "createdAt": "2026-07-28T03:00:40.000Z",
+          "updatedAt": "2026-07-28T03:00:40.000Z",
+          "uid": "35240-6f68a9bd-e9e2-41a0-a510-608f55e387bd"
+        }
+      ],
+      "id": "7cd28199-a070-4302-80ed-810057861f36",
+      "createdAt": "2026-07-28T03:00:40.000Z",
+      "updatedAt": "2026-07-28T03:00:40.000Z",
+      "uid": "35240-7cd28199-a070-4302-80ed-810057861f36"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sportmonks.com/v3/football"
+    }
+  ]
+}

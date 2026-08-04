@@ -1,0 +1,154 @@
+{
+  "info": {
+    "_postman_id": "0478cceb-a461-4feb-98ed-5b6ffe0b92df",
+    "name": "Sportmonks Football Fixtures Predictions API",
+    "description": "REST API providing soccer/football data including livescores, fixtures, schedules,\nstandings, teams, players, predictions, and odds across 2,500+ leagues worldwide.\n\nAll endpoints accept the API token either as an `Authorization` header or as an\n`api_token` query parameter. Responses are JSON and support `include`, `filters`,\nand `select` query parameters for response shaping.\n\n\nContact Support:\n Name: Sportmonks Support\n Email: support@sportmonks.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:00:47.000Z",
+    "updatedAt": "2026-07-28T03:00:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0478cceb-a461-4feb-98ed-5b6ffe0b92df"
+  },
+  "item": [
+    {
+      "name": "predictions",
+      "item": [
+        {
+          "name": "probabilities",
+          "item": [
+            {
+              "name": "fixtures",
+              "item": [
+                {
+                  "name": "{fixtureId}",
+                  "item": [
+                    {
+                      "name": "Get Prediction Probabilities For Fixture",
+                      "id": "4bf88a29-8b8b-418b-80e5-2383a0522859",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/predictions/probabilities/fixtures/:fixtureId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "predictions",
+                            "probabilities",
+                            "fixtures",
+                            ":fixtureId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "947e43cf-20e1-4c62-a981-91354453a04f",
+                              "key": "fixtureId",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns outcome probabilities for a fixture."
+                      },
+                      "response": [
+                        {
+                          "id": "7e643b19-c82e-4937-a125-2d95d8ca4cf3",
+                          "name": "Prediction probabilities for the fixture.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/predictions/probabilities/fixtures/:fixtureId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "predictions",
+                                "probabilities",
+                                "fixtures",
+                                ":fixtureId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "fixtureId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:00:48.000Z",
+                          "updatedAt": "2026-07-28T03:00:48.000Z",
+                          "uid": "35240-7e643b19-c82e-4937-a125-2d95d8ca4cf3"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:00:48.000Z",
+                      "updatedAt": "2026-07-28T03:00:48.000Z",
+                      "uid": "35240-4bf88a29-8b8b-418b-80e5-2383a0522859"
+                    }
+                  ],
+                  "id": "ded94dc2-d896-47b6-8028-7c44063aab20",
+                  "createdAt": "2026-07-28T03:00:48.000Z",
+                  "updatedAt": "2026-07-28T03:00:48.000Z",
+                  "uid": "35240-ded94dc2-d896-47b6-8028-7c44063aab20"
+                }
+              ],
+              "id": "77c9adcf-d57d-4034-bd7d-f02eb242d100",
+              "createdAt": "2026-07-28T03:00:48.000Z",
+              "updatedAt": "2026-07-28T03:00:48.000Z",
+              "uid": "35240-77c9adcf-d57d-4034-bd7d-f02eb242d100"
+            }
+          ],
+          "id": "140d97c9-fa30-4321-b706-af6e40c03372",
+          "createdAt": "2026-07-28T03:00:48.000Z",
+          "updatedAt": "2026-07-28T03:00:48.000Z",
+          "uid": "35240-140d97c9-fa30-4321-b706-af6e40c03372"
+        }
+      ],
+      "id": "a8c2525d-113e-42b5-8efc-0eb419650a1c",
+      "createdAt": "2026-07-28T03:00:48.000Z",
+      "updatedAt": "2026-07-28T03:00:48.000Z",
+      "uid": "35240-a8c2525d-113e-42b5-8efc-0eb419650a1c"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sportmonks.com/v3/football"
+    }
+  ]
+}

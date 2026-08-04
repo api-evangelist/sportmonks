@@ -1,0 +1,32 @@
+{
+  "provider": "sportmonks",
+  "sources": [
+    "sportmonks-fixtures-api-openapi.yml",
+    "sportmonks-leagues-api-openapi.yml",
+    "sportmonks-livescores-api-openapi.yml",
+    "sportmonks-odds-api-openapi.yml",
+    "sportmonks-players-api-openapi.yml",
+    "sportmonks-predictions-api-openapi.yml",
+    "sportmonks-schedules-api-openapi.yml",
+    "sportmonks-seasons-api-openapi.yml",
+    "sportmonks-standings-api-openapi.yml",
+    "sportmonks-teams-api-openapi.yml"
+  ],
+  "outputs": [
+    "sportmonks-fixtures-api-openapi.yml",
+    "sportmonks-leagues-api-openapi.yml",
+    "sportmonks-livescores-api-openapi.yml",
+    "sportmonks-odds-api-openapi.yml",
+    "sportmonks-players-api-openapi.yml",
+    "sportmonks-predictions-api-openapi.yml",
+    "sportmonks-schedules-api-openapi.yml",
+    "sportmonks-seasons-api-openapi.yml",
+    "sportmonks-standings-api-openapi.yml",
+    "sportmonks-teams-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,108 @@
+{
+  "info": {
+    "_postman_id": "4083f224-3379-4172-955d-4e77816946ed",
+    "name": "Sportmonks Football Fixtures Seasons API",
+    "description": "REST API providing soccer/football data including livescores, fixtures, schedules,\nstandings, teams, players, predictions, and odds across 2,500+ leagues worldwide.\n\nAll endpoints accept the API token either as an `Authorization` header or as an\n`api_token` query parameter. Responses are JSON and support `include`, `filters`,\nand `select` query parameters for response shaping.\n\n\nContact Support:\n Name: Sportmonks Support\n Email: support@sportmonks.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:00:49.000Z",
+    "updatedAt": "2026-07-28T03:00:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4083f224-3379-4172-955d-4e77816946ed"
+  },
+  "item": [
+    {
+      "name": "seasons",
+      "item": [
+        {
+          "name": "List Seasons",
+          "id": "1b5d369e-0ac8-4349-85b3-3afdcb93bb49",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/seasons",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons"
+              ]
+            },
+            "description": "Returns all season records."
+          },
+          "response": [
+            {
+              "id": "22eb934c-9f10-4703-9476-13c9e45ad2c2",
+              "name": "A list of seasons.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/seasons",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "seasons"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:00:50.000Z",
+              "updatedAt": "2026-07-28T03:00:50.000Z",
+              "uid": "35240-22eb934c-9f10-4703-9476-13c9e45ad2c2"
+            }
+          ],
+          "createdAt": "2026-07-28T03:00:50.000Z",
+          "updatedAt": "2026-07-28T03:00:50.000Z",
+          "uid": "35240-1b5d369e-0ac8-4349-85b3-3afdcb93bb49"
+        }
+      ],
+      "id": "95f690f5-fff3-4aeb-b4e2-72449ed83860",
+      "createdAt": "2026-07-28T03:00:50.000Z",
+      "updatedAt": "2026-07-28T03:00:50.000Z",
+      "uid": "35240-95f690f5-fff3-4aeb-b4e2-72449ed83860"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sportmonks.com/v3/football"
+    }
+  ]
+}
