@@ -1,0 +1,257 @@
+{
+  "item": [
+    {
+      "id": "5c39367a-f48a-48fe-a31e-41e0b1de873d",
+      "name": "Teams",
+      "description": {
+        "content": "Team profiles, squads, and metadata.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7bea4763-265c-4afe-ab37-1a5fca9acac0",
+          "name": "List Teams",
+          "request": {
+            "name": "List Teams",
+            "description": {
+              "content": "Returns paginated teams across covered leagues.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "teams"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Semicolon-separated list of related entities to embed in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for paginated collection responses."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6c4c246-18f4-491d-9866-a8b37d92fa13",
+              "name": "A list of teams.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "teams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 3953,\n      \"sport_id\": 1563,\n      \"country_id\": 2803,\n      \"venue_id\": 5295,\n      \"gender\": \"string\",\n      \"name\": \"string\",\n      \"short_code\": \"string\",\n      \"image_path\": \"string\",\n      \"founded\": 1012,\n      \"type\": \"string\",\n      \"placeholder\": false,\n      \"last_played_at\": \"1982-06-13T05:38:56.405Z\"\n    },\n    {\n      \"id\": 6053,\n      \"sport_id\": 5337,\n      \"country_id\": 6660,\n      \"venue_id\": 398,\n      \"gender\": \"string\",\n      \"name\": \"string\",\n      \"short_code\": \"string\",\n      \"image_path\": \"string\",\n      \"founded\": 8949,\n      \"type\": \"string\",\n      \"placeholder\": false,\n      \"last_played_at\": \"1949-12-13T05:51:45.069Z\"\n    }\n  ],\n  \"pagination\": {\n    \"count\": 3533,\n    \"per_page\": 4895,\n    \"current_page\": 1540,\n    \"next_page\": \"string\",\n    \"has_more\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77a0cab2-4dd4-4428-af0e-53fb36cc0aaf",
+          "name": "Get Team By ID",
+          "request": {
+            "name": "Get Team By ID",
+            "description": {
+              "content": "Returns a single team by identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "teams",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Semicolon-separated list of related entities to embed in the response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ded98ee2-8c8e-4a24-b1e6-f958d580f0cf",
+              "name": "A single team.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "teams",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 5657,\n    \"sport_id\": 8967,\n    \"country_id\": 7098,\n    \"venue_id\": 6335,\n    \"gender\": \"string\",\n    \"name\": \"string\",\n    \"short_code\": \"string\",\n    \"image_path\": \"string\",\n    \"founded\": 551,\n    \"type\": \"string\",\n    \"placeholder\": false,\n    \"last_played_at\": \"2006-09-17T09:55:28.783Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sportmonks.com/v3/football",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "73c298ee-95f1-4c1b-aba7-15c3721ae9a3",
+    "name": "Sportmonks Football Fixtures Teams API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API providing soccer/football data including livescores, fixtures, schedules,\nstandings, teams, players, predictions, and odds across 2,500+ leagues worldwide.\n\nAll endpoints accept the API token either as an `Authorization` header or as an\n`api_token` query parameter. Responses are JSON and support `include`, `filters`,\nand `select` query parameters for response shaping.\n\n\nContact Support:\n Name: Sportmonks Support\n Email: support@sportmonks.com",
+      "type": "text/plain"
+    }
+  }
+}

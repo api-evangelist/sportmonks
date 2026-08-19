@@ -1,0 +1,137 @@
+{
+  "item": [
+    {
+      "id": "bdc99dfe-d149-48f2-8861-e52fa3ab8169",
+      "name": "Schedules",
+      "description": {
+        "content": "Round and stage schedules per season.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cd03e9e0-b92f-423c-9f5a-4bb253971a0d",
+          "name": "Get Schedule By Season",
+          "request": {
+            "name": "Get Schedule By Season",
+            "description": {
+              "content": "Returns the round-by-round schedule for a season.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "schedules",
+                "seasons",
+                ":seasonId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "seasonId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2e516e7-63bf-4743-b058-392b709f068d",
+              "name": "Season schedule.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules",
+                    "seasons",
+                    ":seasonId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "seasonId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sportmonks.com/v3/football",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "dfcdca95-09de-4b0b-a6c6-0477a369cc48",
+    "name": "Sportmonks Football Fixtures Schedules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API providing soccer/football data including livescores, fixtures, schedules,\nstandings, teams, players, predictions, and odds across 2,500+ leagues worldwide.\n\nAll endpoints accept the API token either as an `Authorization` header or as an\n`api_token` query parameter. Responses are JSON and support `include`, `filters`,\nand `select` query parameters for response shaping.\n\n\nContact Support:\n Name: Sportmonks Support\n Email: support@sportmonks.com",
+      "type": "text/plain"
+    }
+  }
+}

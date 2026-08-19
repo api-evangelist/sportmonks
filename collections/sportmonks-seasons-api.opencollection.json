@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sportmonks Football Fixtures Seasons API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Seasons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Seasons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/seasons"
+          },
+          "docs": "Returns all season records."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

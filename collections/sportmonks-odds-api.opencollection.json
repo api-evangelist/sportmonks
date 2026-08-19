@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sportmonks Football Fixtures Odds API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Odds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Pre-Match Odds For Fixture",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/odds/pre-match/fixtures/:fixtureId",
+            "params": [
+              {
+                "name": "fixtureId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns pre-match bookmaker odds for a fixture."
+        },
+        {
+          "info": {
+            "name": "Get In-Play Odds For Fixture",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/odds/inplay/fixtures/:fixtureId",
+            "params": [
+              {
+                "name": "fixtureId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns live in-play bookmaker odds for a fixture."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sportmonks Football Fixtures API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fixtures",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fixtures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/fixtures",
+            "params": [
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated list of related entities to embed in the response."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated filter expressions applied to the collection."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for paginated collection responses."
+              }
+            ]
+          },
+          "docs": "Returns paginated fixtures across leagues and seasons."
+        },
+        {
+          "info": {
+            "name": "Get Fixture By ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/fixtures/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated list of related entities to embed in the response."
+              }
+            ]
+          },
+          "docs": "Returns a single fixture by its identifier."
+        },
+        {
+          "info": {
+            "name": "List Fixtures By Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportmonks.com/v3/football/fixtures/date/:date",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Semicolon-separated list of related entities to embed in the response."
+              }
+            ]
+          },
+          "docs": "Returns fixtures scheduled on a specific calendar date (YYYY-MM-DD)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

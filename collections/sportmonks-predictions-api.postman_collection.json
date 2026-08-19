@@ -1,0 +1,139 @@
+{
+  "item": [
+    {
+      "id": "d2edecef-dcd4-4ff7-a834-ee683e6dd3d5",
+      "name": "Predictions",
+      "description": {
+        "content": "Probabilities and predicted outcomes for upcoming fixtures.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "24572f0d-1d24-483a-8440-63c62f5df180",
+          "name": "Get Prediction Probabilities For Fixture",
+          "request": {
+            "name": "Get Prediction Probabilities For Fixture",
+            "description": {
+              "content": "Returns outcome probabilities for a fixture.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "predictions",
+                "probabilities",
+                "fixtures",
+                ":fixtureId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "fixtureId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cbfa6e1b-b6a1-4f8f-b5c4-f070a9141e83",
+              "name": "Prediction probabilities for the fixture.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "predictions",
+                    "probabilities",
+                    "fixtures",
+                    ":fixtureId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "fixtureId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sportmonks.com/v3/football",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "421e0919-826e-4713-b70a-37ae2242814e",
+    "name": "Sportmonks Football Fixtures Predictions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API providing soccer/football data including livescores, fixtures, schedules,\nstandings, teams, players, predictions, and odds across 2,500+ leagues worldwide.\n\nAll endpoints accept the API token either as an `Authorization` header or as an\n`api_token` query parameter. Responses are JSON and support `include`, `filters`,\nand `select` query parameters for response shaping.\n\n\nContact Support:\n Name: Sportmonks Support\n Email: support@sportmonks.com",
+      "type": "text/plain"
+    }
+  }
+}

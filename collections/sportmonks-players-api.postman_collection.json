@@ -1,0 +1,257 @@
+{
+  "item": [
+    {
+      "id": "aa6d3c00-7b42-4a7b-9044-704f525b0922",
+      "name": "Players",
+      "description": {
+        "content": "Player profiles, attributes, and career data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e01e1e81-413d-4831-849f-50f626d6d4a8",
+          "name": "List Players",
+          "request": {
+            "name": "List Players",
+            "description": {
+              "content": "Returns paginated players across covered leagues.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "players"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Semicolon-separated list of related entities to embed in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for paginated collection responses."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4bec5dfe-6365-4f6e-b947-c58260846bc9",
+              "name": "A list of players.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "players"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 4670,\n      \"sport_id\": 9827,\n      \"country_id\": 3752,\n      \"nationality_id\": 532,\n      \"city_id\": 9936,\n      \"position_id\": 6649,\n      \"detailed_position_id\": 1907,\n      \"type_id\": 8176,\n      \"common_name\": \"string\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"name\": \"string\",\n      \"display_name\": \"string\",\n      \"image_path\": \"string\",\n      \"height\": 2848,\n      \"weight\": 7640,\n      \"date_of_birth\": \"1970-01-25\",\n      \"gender\": \"string\"\n    },\n    {\n      \"id\": 581,\n      \"sport_id\": 2593,\n      \"country_id\": 9158,\n      \"nationality_id\": 5221,\n      \"city_id\": 6874,\n      \"position_id\": 8647,\n      \"detailed_position_id\": 9061,\n      \"type_id\": 1952,\n      \"common_name\": \"string\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"name\": \"string\",\n      \"display_name\": \"string\",\n      \"image_path\": \"string\",\n      \"height\": 3928,\n      \"weight\": 6413,\n      \"date_of_birth\": \"1978-07-03\",\n      \"gender\": \"string\"\n    }\n  ],\n  \"pagination\": {\n    \"count\": 155,\n    \"per_page\": 4998,\n    \"current_page\": 6444,\n    \"next_page\": \"string\",\n    \"has_more\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7d673f5-8f25-4cf2-b969-9eca9b9c0f6f",
+          "name": "Get Player By ID",
+          "request": {
+            "name": "Get Player By ID",
+            "description": {
+              "content": "Returns a single player profile.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "players",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Semicolon-separated list of related entities to embed in the response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2e9d9b69-eba6-4301-be32-c52d7d549919",
+              "name": "A single player.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "players",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 9420,\n    \"sport_id\": 364,\n    \"country_id\": 6279,\n    \"nationality_id\": 3452,\n    \"city_id\": 6867,\n    \"position_id\": 6806,\n    \"detailed_position_id\": 5339,\n    \"type_id\": 1107,\n    \"common_name\": \"string\",\n    \"firstname\": \"string\",\n    \"lastname\": \"string\",\n    \"name\": \"string\",\n    \"display_name\": \"string\",\n    \"image_path\": \"string\",\n    \"height\": 8818,\n    \"weight\": 4205,\n    \"date_of_birth\": \"2019-12-05\",\n    \"gender\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sportmonks.com/v3/football",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7476e392-631c-41bf-acec-76c0a562cd23",
+    "name": "Sportmonks Football Fixtures Players API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API providing soccer/football data including livescores, fixtures, schedules,\nstandings, teams, players, predictions, and odds across 2,500+ leagues worldwide.\n\nAll endpoints accept the API token either as an `Authorization` header or as an\n`api_token` query parameter. Responses are JSON and support `include`, `filters`,\nand `select` query parameters for response shaping.\n\n\nContact Support:\n Name: Sportmonks Support\n Email: support@sportmonks.com",
+      "type": "text/plain"
+    }
+  }
+}

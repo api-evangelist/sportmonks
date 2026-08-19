@@ -1,0 +1,117 @@
+{
+  "item": [
+    {
+      "id": "6c410be7-3ebd-45a2-a35d-73962de2255f",
+      "name": "Seasons",
+      "description": {
+        "content": "Season records and per-season fixture lists.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "07bf58eb-cc52-41ae-b7ea-892563bdc7ac",
+          "name": "List Seasons",
+          "request": {
+            "name": "List Seasons",
+            "description": {
+              "content": "Returns all season records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "seasons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24bcd08f-a29e-4e1d-a513-d79cb6ebe09e",
+              "name": "A list of seasons.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sportmonks.com/v3/football",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "18476845-bbf0-4459-838a-0860a0a6ffa2",
+    "name": "Sportmonks Football Fixtures Seasons API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API providing soccer/football data including livescores, fixtures, schedules,\nstandings, teams, players, predictions, and odds across 2,500+ leagues worldwide.\n\nAll endpoints accept the API token either as an `Authorization` header or as an\n`api_token` query parameter. Responses are JSON and support `include`, `filters`,\nand `select` query parameters for response shaping.\n\n\nContact Support:\n Name: Sportmonks Support\n Email: support@sportmonks.com",
+      "type": "text/plain"
+    }
+  }
+}
