@@ -45,7 +45,7 @@ tags:
   - Developer-Friendly
   - Football
   - Formula 1
-  - Live Scores
+  - Livescores
   - Motorsport
   - Real-Time
   - Soccer
@@ -77,7 +77,7 @@ apis:
   tags:
   - Ball-By-Ball
   - Cricket
-  - Live Scores
+  - Livescores
   - Real-Time
   - Sports Data
   - Statistics
@@ -183,7 +183,7 @@ apis:
   humanURL: https://docs.sportmonks.com/football
   baseURL: https://api.sportmonks.com/v3/football
   tags:
-  - Live Scores
+  - Livescores
   tags_raw:
   - Livescores
   properties:
