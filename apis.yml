@@ -46,7 +46,7 @@ tags:
   - Football
   - Formula 1
   - Live Scores
-  - Motorsport
+  - Motorsports
   - Real-Time
   - Soccer
   - Sports
@@ -106,6 +106,13 @@ apis:
   tags:
   - Drivers
   - Formula 1
+  - Motorsports
+  - Race Results
+  - Real-Time
+  - Standings
+  tags_raw:
+  - Drivers
+  - Formula 1
   - Motorsport
   - Race Results
   - Real-Time
@@ -159,6 +166,8 @@ apis:
   humanURL: https://docs.sportmonks.com/football
   baseURL: https://api.sportmonks.com/v3/football
   tags:
+  - League
+  tags_raw:
   - Leagues
   properties:
   - type: OpenAPI
@@ -233,6 +242,8 @@ apis:
   humanURL: https://docs.sportmonks.com/football
   baseURL: https://api.sportmonks.com/v3/football
   tags:
+  - Player
+  tags_raw:
   - Players
   properties:
   - type: OpenAPI
@@ -281,6 +292,8 @@ apis:
   humanURL: https://docs.sportmonks.com/football
   baseURL: https://api.sportmonks.com/v3/football
   tags:
+  - Schedule
+  tags_raw:
   - Schedules
   properties:
   - type: OpenAPI
