@@ -1,16 +1,7 @@
 {
   "provider": "sportmonks",
   "sources": [
-    "sportmonks-fixtures-api-openapi.yml",
-    "sportmonks-leagues-api-openapi.yml",
-    "sportmonks-livescores-api-openapi.yml",
-    "sportmonks-odds-api-openapi.yml",
-    "sportmonks-players-api-openapi.yml",
-    "sportmonks-predictions-api-openapi.yml",
-    "sportmonks-schedules-api-openapi.yml",
-    "sportmonks-seasons-api-openapi.yml",
-    "sportmonks-standings-api-openapi.yml",
-    "sportmonks-teams-api-openapi.yml"
+    "_original/sportmonks-football-openapi.yml"
   ],
   "outputs": [
     "sportmonks-fixtures-api-openapi.yml",
@@ -27,6 +18,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "sportmonks-football-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "sportmonks-fixtures-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sportmonks-leagues-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sportmonks-livescores-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sportmonks-odds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sportmonks-players-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sportmonks-predictions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sportmonks-schedules-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sportmonks-seasons-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sportmonks-standings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sportmonks-teams-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

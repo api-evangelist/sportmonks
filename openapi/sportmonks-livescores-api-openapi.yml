@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Sportmonks Football Fixtures Livescores API
+  title: Sportmonks Football Livescores API
   description: 'REST API providing soccer/football data including livescores, fixtures, schedules,
 
     standings, teams, players, predictions, and odds across 2,500+ leagues worldwide.
@@ -10,9 +10,7 @@ info:
 
     `api_token` query parameter. Responses are JSON and support `include`, `filters`,
 
-    and `select` query parameters for response shaping.
-
-    '
+    and `select` query parameters for response shaping.'
   version: '3.0'
   contact:
     name: Sportmonks Support
@@ -69,6 +67,88 @@ paths:
                 $ref: '#/components/schemas/FixtureCollection'
 components:
   schemas:
+    Fixture:
+      type: object
+      properties:
+        id:
+          type: integer
+        sport_id:
+          type: integer
+        league_id:
+          type: integer
+        season_id:
+          type: integer
+        stage_id:
+          type:
+          - integer
+          - 'null'
+        round_id:
+          type:
+          - integer
+          - 'null'
+        state_id:
+          type: integer
+        venue_id:
+          type:
+          - integer
+          - 'null'
+        name:
+          type: string
+        starting_at:
+          type: string
+          format: date-time
+        result_info:
+          type:
+          - string
+          - 'null'
+        leg:
+          type:
+          - string
+          - 'null'
+        details:
+          type:
+          - string
+          - 'null'
+        length:
+          type:
+          - integer
+          - 'null'
+        placeholder:
+          type: boolean
+        has_odds:
+          type: boolean
+        has_premium_odds:
+          type: boolean
+        starting_at_timestamp:
+          type: integer
+    Pagination:
+      type: object
+      properties:
+        count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        next_page:
+          type:
+          - string
+          - 'null'
+        has_more:
+          type: boolean
+    FixtureCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Fixture'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        subscription:
+          $ref: '#/components/schemas/Subscription'
+        rate_limit:
+          $ref: '#/components/schemas/RateLimit'
     RateLimit:
       type: object
       properties:
@@ -95,81 +175,14 @@ components:
           type: array
           items:
             type: object
-    Fixture:
-      type: object
-      properties:
-        id:
-          type: integer
-        sport_id:
-          type: integer
-        league_id:
-          type: integer
-        season_id:
-          type: integer
-        stage_id:
-          type: integer
-          nullable: true
-        round_id:
-          type: integer
-          nullable: true
-        state_id:
-          type: integer
-        venue_id:
-          type: integer
-          nullable: true
-        name:
-          type: string
-        starting_at:
-          type: string
-          format: date-time
-        result_info:
-          type: string
-          nullable: true
-        leg:
-          type: string
-          nullable: true
-        details:
-          type: string
-          nullable: true
-        length:
-          type: integer
-          nullable: true
-        placeholder:
-          type: boolean
-        has_odds:
-          type: boolean
-        has_premium_odds:
-          type: boolean
-        starting_at_timestamp:
-          type: integer
-    Pagination:
-      type: object
-      properties:
-        count:
-          type: integer
-        per_page:
-          type: integer
-        current_page:
-          type: integer
-        next_page:
-          type: string
-          nullable: true
-        has_more:
-          type: boolean
-    FixtureCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Fixture'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-        subscription:
-          $ref: '#/components/schemas/Subscription'
-        rate_limit:
-          $ref: '#/components/schemas/RateLimit'
   parameters:
+    Select:
+      name: select
+      in: query
+      description: Comma-separated list of fields to include in each entity (field selection).
+      required: false
+      schema:
+        type: string
     Include:
       name: include
       in: query
@@ -181,13 +194,6 @@ components:
       name: filters
       in: query
       description: Semicolon-separated filter expressions applied to the collection.
-      required: false
-      schema:
-        type: string
-    Select:
-      name: select
-      in: query
-      description: Comma-separated list of fields to include in each entity (field selection).
       required: false
       schema:
         type: string

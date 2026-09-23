@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Sportmonks Football Fixtures Schedules API
+  title: Sportmonks Football Schedules API
   description: 'REST API providing soccer/football data including livescores, fixtures, schedules,
 
     standings, teams, players, predictions, and odds across 2,500+ leagues worldwide.
@@ -10,9 +10,7 @@ info:
 
     `api_token` query parameter. Responses are JSON and support `include`, `filters`,
 
-    and `select` query parameters for response shaping.
-
-    '
+    and `select` query parameters for response shaping.'
   version: '3.0'
   contact:
     name: Sportmonks Support
