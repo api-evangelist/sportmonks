@@ -70,6 +70,11 @@ paths:
                 $ref: '#/components/schemas/LeagueEnvelope'
 components:
   schemas:
+    LeagueEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/League'
     Pagination:
       type: object
       properties:
@@ -130,11 +135,6 @@ components:
             $ref: '#/components/schemas/League'
         pagination:
           $ref: '#/components/schemas/Pagination'
-    LeagueEnvelope:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/League'
   parameters:
     Include:
       name: include

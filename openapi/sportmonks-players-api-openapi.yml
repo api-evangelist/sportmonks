@@ -70,6 +70,20 @@ paths:
                 $ref: '#/components/schemas/PlayerEnvelope'
 components:
   schemas:
+    PlayerCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Player'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    PlayerEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Player'
     Pagination:
       type: object
       properties:
@@ -143,20 +157,6 @@ components:
           format: date
         gender:
           type: string
-    PlayerEnvelope:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Player'
-    PlayerCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Player'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
   parameters:
     Include:
       name: include

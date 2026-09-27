@@ -67,6 +67,60 @@ paths:
                 $ref: '#/components/schemas/FixtureCollection'
 components:
   schemas:
+    FixtureCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Fixture'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        subscription:
+          $ref: '#/components/schemas/Subscription'
+        rate_limit:
+          $ref: '#/components/schemas/RateLimit'
+    RateLimit:
+      type: object
+      properties:
+        resets_in_seconds:
+          type: integer
+        remaining:
+          type: integer
+        requested_entity:
+          type: string
+    Pagination:
+      type: object
+      properties:
+        count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        next_page:
+          type:
+          - string
+          - 'null'
+        has_more:
+          type: boolean
+    Subscription:
+      type: object
+      properties:
+        meta:
+          type: object
+        plans:
+          type: array
+          items:
+            type: object
+        add_ons:
+          type: array
+          items:
+            type: object
+        widgets:
+          type: array
+          items:
+            type: object
     Fixture:
       type: object
       properties:
@@ -121,60 +175,6 @@ components:
           type: boolean
         starting_at_timestamp:
           type: integer
-    Pagination:
-      type: object
-      properties:
-        count:
-          type: integer
-        per_page:
-          type: integer
-        current_page:
-          type: integer
-        next_page:
-          type:
-          - string
-          - 'null'
-        has_more:
-          type: boolean
-    FixtureCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Fixture'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-        subscription:
-          $ref: '#/components/schemas/Subscription'
-        rate_limit:
-          $ref: '#/components/schemas/RateLimit'
-    RateLimit:
-      type: object
-      properties:
-        resets_in_seconds:
-          type: integer
-        remaining:
-          type: integer
-        requested_entity:
-          type: string
-    Subscription:
-      type: object
-      properties:
-        meta:
-          type: object
-        plans:
-          type: array
-          items:
-            type: object
-        add_ons:
-          type: array
-          items:
-            type: object
-        widgets:
-          type: array
-          items:
-            type: object
   parameters:
     Select:
       name: select
