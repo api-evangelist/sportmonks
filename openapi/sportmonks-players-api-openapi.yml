@@ -70,35 +70,6 @@ paths:
                 $ref: '#/components/schemas/PlayerEnvelope'
 components:
   schemas:
-    PlayerCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Player'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    PlayerEnvelope:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Player'
-    Pagination:
-      type: object
-      properties:
-        count:
-          type: integer
-        per_page:
-          type: integer
-        current_page:
-          type: integer
-        next_page:
-          type:
-          - string
-          - 'null'
-        has_more:
-          type: boolean
     Player:
       type: object
       properties:
@@ -157,14 +128,36 @@ components:
           format: date
         gender:
           type: string
+    PlayerEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Player'
+    Pagination:
+      type: object
+      properties:
+        count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        next_page:
+          type:
+          - string
+          - 'null'
+        has_more:
+          type: boolean
+    PlayerCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Player'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
   parameters:
-    Include:
-      name: include
-      in: query
-      description: Semicolon-separated list of related entities to embed in the response.
-      required: false
-      schema:
-        type: string
     Page:
       name: page
       in: query
@@ -173,6 +166,13 @@ components:
       schema:
         type: integer
         minimum: 1
+    Include:
+      name: include
+      in: query
+      description: Semicolon-separated list of related entities to embed in the response.
+      required: false
+      schema:
+        type: string
   securitySchemes:
     ApiTokenHeader:
       type: apiKey

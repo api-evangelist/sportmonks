@@ -69,12 +69,37 @@ paths:
               schema:
                 $ref: '#/components/schemas/LeagueEnvelope'
 components:
+  parameters:
+    Page:
+      name: page
+      in: query
+      description: Page number for paginated collection responses.
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+    Include:
+      name: include
+      in: query
+      description: Semicolon-separated list of related entities to embed in the response.
+      required: false
+      schema:
+        type: string
   schemas:
     LeagueEnvelope:
       type: object
       properties:
         data:
           $ref: '#/components/schemas/League'
+    LeagueCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/League'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     Pagination:
       type: object
       properties:
@@ -126,31 +151,6 @@ components:
           - 'null'
         has_jerseys:
           type: boolean
-    LeagueCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/League'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-  parameters:
-    Include:
-      name: include
-      in: query
-      description: Semicolon-separated list of related entities to embed in the response.
-      required: false
-      schema:
-        type: string
-    Page:
-      name: page
-      in: query
-      description: Page number for paginated collection responses.
-      required: false
-      schema:
-        type: integer
-        minimum: 1
   securitySchemes:
     ApiTokenHeader:
       type: apiKey

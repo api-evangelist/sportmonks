@@ -92,20 +92,30 @@ paths:
               schema:
                 $ref: '#/components/schemas/FixtureCollection'
 components:
+  parameters:
+    Filters:
+      name: filters
+      in: query
+      description: Semicolon-separated filter expressions applied to the collection.
+      required: false
+      schema:
+        type: string
+    Page:
+      name: page
+      in: query
+      description: Page number for paginated collection responses.
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+    Include:
+      name: include
+      in: query
+      description: Semicolon-separated list of related entities to embed in the response.
+      required: false
+      schema:
+        type: string
   schemas:
-    FixtureCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Fixture'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-        subscription:
-          $ref: '#/components/schemas/Subscription'
-        rate_limit:
-          $ref: '#/components/schemas/RateLimit'
     RateLimit:
       type: object
       properties:
@@ -115,21 +125,32 @@ components:
           type: integer
         requested_entity:
           type: string
-    Pagination:
+    FixtureEnvelope:
       type: object
       properties:
-        count:
-          type: integer
-        per_page:
-          type: integer
-        current_page:
-          type: integer
-        next_page:
-          type:
-          - string
-          - 'null'
-        has_more:
-          type: boolean
+        data:
+          $ref: '#/components/schemas/Fixture'
+        subscription:
+          $ref: '#/components/schemas/Subscription'
+        rate_limit:
+          $ref: '#/components/schemas/RateLimit'
+    Subscription:
+      type: object
+      properties:
+        meta:
+          type: object
+        plans:
+          type: array
+          items:
+            type: object
+        add_ons:
+          type: array
+          items:
+            type: object
+        widgets:
+          type: array
+          items:
+            type: object
     Fixture:
       type: object
       properties:
@@ -184,55 +205,34 @@ components:
           type: boolean
         starting_at_timestamp:
           type: integer
-    Subscription:
+    Pagination:
       type: object
       properties:
-        meta:
-          type: object
-        plans:
-          type: array
-          items:
-            type: object
-        add_ons:
-          type: array
-          items:
-            type: object
-        widgets:
-          type: array
-          items:
-            type: object
-    FixtureEnvelope:
+        count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        next_page:
+          type:
+          - string
+          - 'null'
+        has_more:
+          type: boolean
+    FixtureCollection:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/Fixture'
+          type: array
+          items:
+            $ref: '#/components/schemas/Fixture'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
         subscription:
           $ref: '#/components/schemas/Subscription'
         rate_limit:
           $ref: '#/components/schemas/RateLimit'
-  parameters:
-    Include:
-      name: include
-      in: query
-      description: Semicolon-separated list of related entities to embed in the response.
-      required: false
-      schema:
-        type: string
-    Filters:
-      name: filters
-      in: query
-      description: Semicolon-separated filter expressions applied to the collection.
-      required: false
-      schema:
-        type: string
-    Page:
-      name: page
-      in: query
-      description: Page number for paginated collection responses.
-      required: false
-      schema:
-        type: integer
-        minimum: 1
   securitySchemes:
     ApiTokenHeader:
       type: apiKey
