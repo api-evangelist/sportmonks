@@ -70,6 +70,26 @@ paths:
                 $ref: '#/components/schemas/TeamEnvelope'
 components:
   schemas:
+    Pagination:
+      type: object
+      properties:
+        count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        next_page:
+          type:
+          - string
+          - 'null'
+        has_more:
+          type: boolean
+    TeamEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Team'
     TeamCollection:
       type: object
       properties:
@@ -115,26 +135,6 @@ components:
           - string
           - 'null'
           format: date-time
-    TeamEnvelope:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Team'
-    Pagination:
-      type: object
-      properties:
-        count:
-          type: integer
-        per_page:
-          type: integer
-        current_page:
-          type: integer
-        next_page:
-          type:
-          - string
-          - 'null'
-        has_more:
-          type: boolean
   parameters:
     Include:
       name: include

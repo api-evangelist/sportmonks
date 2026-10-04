@@ -70,6 +70,13 @@ paths:
                 $ref: '#/components/schemas/LeagueEnvelope'
 components:
   parameters:
+    Include:
+      name: include
+      in: query
+      description: Semicolon-separated list of related entities to embed in the response.
+      required: false
+      schema:
+        type: string
     Page:
       name: page
       in: query
@@ -78,43 +85,7 @@ components:
       schema:
         type: integer
         minimum: 1
-    Include:
-      name: include
-      in: query
-      description: Semicolon-separated list of related entities to embed in the response.
-      required: false
-      schema:
-        type: string
   schemas:
-    LeagueEnvelope:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/League'
-    LeagueCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/League'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    Pagination:
-      type: object
-      properties:
-        count:
-          type: integer
-        per_page:
-          type: integer
-        current_page:
-          type: integer
-        next_page:
-          type:
-          - string
-          - 'null'
-        has_more:
-          type: boolean
     League:
       type: object
       properties:
@@ -151,6 +122,35 @@ components:
           - 'null'
         has_jerseys:
           type: boolean
+    Pagination:
+      type: object
+      properties:
+        count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        next_page:
+          type:
+          - string
+          - 'null'
+        has_more:
+          type: boolean
+    LeagueEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/League'
+    LeagueCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/League'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
   securitySchemes:
     ApiTokenHeader:
       type: apiKey
