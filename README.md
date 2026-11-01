@@ -1,4 +1,4 @@
-# Sportmonks (sportmonks)
+# Sportmonks
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,164 +66,196 @@
 
 Sportmonks is a Dutch sports data provider (Deventer, Netherlands) delivering developer-friendly REST APIs for football/soccer, cricket, and motorsport (Formula 1). The platform serves 30,000+ active users and 20,000+ developers building livescore portals, fantasy games, betting platforms, sports media products, and analytics tools. Sportmonks emphasizes fast real-time updates (<15 seconds), 99.9% uptime, transparent per-league pricing, and a forever-free tier covering selected leagues. APIs use JSON over REST with API token authentication via either an Authorization header or an `api_token` query parameter, and support fine-grained response shaping through filters, includes, and field selection.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/sportmonks/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/sportmonks/refs/heads/main/apis.yml)
+**Areas:** Cricket · Data · Developer-Friendly · Football · Formula 1 · Live Scores · Motorsports · Real-Time · Soccer · Sports · Sports Data · Statistics
 
-## Scope
+## Sportmonks on APIs.io
 
-- **Type:** Index
+Everything profiled for Sportmonks is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/sportmonks/](https://apis.io/providers/sportmonks/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (13)
 
-- Cricket
-- Data
-- Developer-Friendly
-- Football
-- Formula 1
-- Livescores
-- Motorsport
-- Real-Time
-- Soccer
-- Sports
-- Sports Data
-- Statistics
+- [Sportmonks Cricket API](https://apis.io/apis/sportmonks/cricket-api/) — REST API for cricket data covering 130+ leagues including IPL, international fixtures, and T20 competitions. Provides ball-by-ball commentary, live…
+- [Sportmonks Motorsport API](https://apis.io/apis/sportmonks/motorsport-api/) — REST API for motorsport data including Formula 1 race results, qualifying, driver and constructor standings, lap times, season schedules, and circuit…
+- [Sportmonks Football Widgets](https://apis.io/apis/sportmonks/football-widgets/) — Embeddable JavaScript widgets that render Sportmonks football data as ready-to-use UI components for livescores, league tables, fixtures, and match details.…
+- [Sportmonks Fixtures API](https://apis.io/apis/sportmonks/sportmonks-fixtures-api/) — Scheduled and historical match fixtures.
+- [Sportmonks Leagues API](https://apis.io/apis/sportmonks/sportmonks-leagues-api/) — Competition metadata across countries and seasons.
+- [Sportmonks Livescores API](https://apis.io/apis/sportmonks/sportmonks-livescores-api/) — Real-time score and match-state feeds.
+- [Sportmonks Odds API](https://apis.io/apis/sportmonks/sportmonks-odds-api/) — Pre-match and in-play betting odds.
+- [Sportmonks Players API](https://apis.io/apis/sportmonks/sportmonks-players-api/) — Player profiles, attributes, and career data.
+- [Sportmonks Predictions API](https://apis.io/apis/sportmonks/sportmonks-predictions-api/) — Probabilities and predicted outcomes for upcoming fixtures.
+- [Sportmonks Schedules API](https://apis.io/apis/sportmonks/sportmonks-schedules-api/) — Round and stage schedules per season.
+- [Sportmonks Seasons API](https://apis.io/apis/sportmonks/sportmonks-seasons-api/) — Season records and per-season fixture lists.
+- [Sportmonks Standings API](https://apis.io/apis/sportmonks/sportmonks-standings-api/) — League tables and group standings.
+- [Sportmonks Teams API](https://apis.io/apis/sportmonks/sportmonks-teams-api/) — Team profiles, squads, and metadata.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Sportmonks Football API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-REST API for soccer/football data covering 2,500+ leagues worldwide. Provides fixtures, livescores, schedules, standings, statistics, predictions, odds, teams, players, coaches, referees, venues, transfers, topscorers, and news. Supports request optimization via filters, includes, and field selection. Pricing tiers gate the number of leagues accessible, with a forever-free plan covering the Danish Superliga and Scottish Premiership.
+- [Sportmonks Agentic Access](https://apis.io/agentic-access/sportmonks/sportmonks-agentic-access/)
 
-- **Human URL:** [https://docs.sportmonks.com/football](https://docs.sportmonks.com/football)
-- **Base URL:** `https://api.sportmonks.com/v3/football`
+#### JSON Schema (5)
 
-#### Tags
+The data models the API reads and writes.
 
-- Football
-- Livescores
-- Odds
-- Predictions
-- Real-Time
-- Soccer
-- Statistics
+- [Sportmonks Fixture](https://apis.io/schemas/sportmonks/sportmonks-fixture/)
+- [Sportmonks League](https://apis.io/schemas/sportmonks/sportmonks-league/)
+- [Sportmonks Livescore](https://apis.io/schemas/sportmonks/sportmonks-livescore/)
+- [Sportmonks Player](https://apis.io/schemas/sportmonks/sportmonks-player/)
+- [Sportmonks Team](https://apis.io/schemas/sportmonks/sportmonks-team/)
 
-#### Properties
+#### JSON Structure (1)
 
-- [Documentation](https://docs.sportmonks.com/football)
-- [Getting Started](https://docs.sportmonks.com/football/welcome/introduction)
-- [Authentication](https://docs.sportmonks.com/football/welcome/authentication)
-- [API Reference](https://docs.sportmonks.com/football/endpoints-and-entities)
-- [Changelog](https://docs.sportmonks.com/football/changelog)
-- [OpenAPI](openapi/sportmonks-football-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sportmonks-football.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportmonks-football.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Example](examples/sportmonks-fixture-example.json)
-- [Example](examples/sportmonks-livescore-example.json)
+Data models expressed in JSON Structure.
 
-### Sportmonks Cricket API
+- [Sportmonks Fixture Structure](https://apis.io/json-structure/sportmonks/sportmonks-fixture-structure/)
 
-REST API for cricket data covering 130+ leagues including IPL, international fixtures, and T20 competitions. Provides ball-by-ball commentary, live scoreboards, fixtures, teams, players, venues, officials, seasons, leagues, and detailed player statistics. A Postman collection is published at cricket-postman.sportmonks.com.
+#### JSON-LD (1)
 
-- **Human URL:** [https://docs.sportmonks.com/cricket](https://docs.sportmonks.com/cricket)
-- **Base URL:** `https://cricket.sportmonks.com/api/v2.0`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Sportmonks Context](https://apis.io/jsonld/sportmonks/sportmonks-context/)
 
-- Ball-By-Ball
-- Cricket
-- Livescores
-- Real-Time
-- Sports Data
-- Statistics
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://docs.sportmonks.com/cricket)
-- [Getting Started](https://docs.sportmonks.com/cricket/welcome/introduction)
-- [Postman Collection](https://cricket-postman.sportmonks.com/) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Postman Collection](collections/sportmonks-football.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportmonks-football.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Sportmonks Vocabulary](https://apis.io/vocabularies/sportmonks/sportmonks-vocabulary/)
 
-### Sportmonks Motorsport API
+#### Examples (2)
 
-REST API for motorsport data including Formula 1 race results, qualifying, driver and constructor standings, lap times, season schedules, and circuit information. Replaces the deprecated Formula One v1 API with a v3 motorsport-wide surface area.
+Example requests and responses.
 
-- **Human URL:** [https://docs.sportmonks.com/v3/motorsport-api/](https://docs.sportmonks.com/v3/motorsport-api/)
-- **Base URL:** `https://api.sportmonks.com/v3/motorsport`
+- [Sportmonks Fixture Example](https://apis.io/examples/sportmonks/sportmonks-fixture-example/)
+- [Sportmonks Livescore Example](https://apis.io/examples/sportmonks/sportmonks-livescore-example/)
 
-#### Tags
+#### Collections (21)
 
-- Drivers
-- Formula 1
-- Motorsport
-- Race Results
-- Real-Time
-- Standings
+Postman and Open Collection request collections.
 
-#### Properties
+- [Sportmonks Football Fixtures API](https://apis.io/collections/sportmonks/open-sportmonks-fixtures-api/)
+- [Sportmonks Football API](https://apis.io/collections/sportmonks/open-sportmonks-football/)
+- [Sportmonks Football Fixtures Leagues API](https://apis.io/collections/sportmonks/open-sportmonks-leagues-api/)
+- [Sportmonks Football Fixtures Livescores API](https://apis.io/collections/sportmonks/open-sportmonks-livescores-api/)
+- [Sportmonks Football Fixtures Odds API](https://apis.io/collections/sportmonks/open-sportmonks-odds-api/)
+- [Sportmonks Football Fixtures Players API](https://apis.io/collections/sportmonks/open-sportmonks-players-api/)
+- [Sportmonks Football Fixtures Predictions API](https://apis.io/collections/sportmonks/open-sportmonks-predictions-api/)
+- [Sportmonks Football Fixtures Schedules API](https://apis.io/collections/sportmonks/open-sportmonks-schedules-api/)
+- [Sportmonks Football Fixtures Seasons API](https://apis.io/collections/sportmonks/open-sportmonks-seasons-api/)
+- [Sportmonks Football Fixtures Standings API](https://apis.io/collections/sportmonks/open-sportmonks-standings-api/)
+- [Sportmonks Football Fixtures Teams API](https://apis.io/collections/sportmonks/open-sportmonks-teams-api/)
+- [Sportmonks Football Fixtures API](https://apis.io/collections/sportmonks/postman-sportmonks-fixtures-api/)
+- [Sportmonks Football Fixtures Leagues API](https://apis.io/collections/sportmonks/postman-sportmonks-leagues-api/)
+- [Sportmonks Football Fixtures Livescores API](https://apis.io/collections/sportmonks/postman-sportmonks-livescores-api/)
+- [Sportmonks Football Fixtures Odds API](https://apis.io/collections/sportmonks/postman-sportmonks-odds-api/)
+- [Sportmonks Football Fixtures Players API](https://apis.io/collections/sportmonks/postman-sportmonks-players-api/)
+- [Sportmonks Football Fixtures Predictions API](https://apis.io/collections/sportmonks/postman-sportmonks-predictions-api/)
+- [Sportmonks Football Fixtures Schedules API](https://apis.io/collections/sportmonks/postman-sportmonks-schedules-api/)
+- [Sportmonks Football Fixtures Seasons API](https://apis.io/collections/sportmonks/postman-sportmonks-seasons-api/)
+- [Sportmonks Football Fixtures Standings API](https://apis.io/collections/sportmonks/postman-sportmonks-standings-api/)
+- [Sportmonks Football Fixtures Teams API](https://apis.io/collections/sportmonks/postman-sportmonks-teams-api/)
 
-- [Documentation](https://docs.sportmonks.com/v3/motorsport-api/)
-- [Getting Started](https://docs.sportmonks.com/v3/motorsport-api/welcome/introduction)
-- [Postman Collection](collections/sportmonks-football.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportmonks-football.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Governance rules (2)
 
-### Sportmonks Football Widgets
+Spectral rulesets for the provider's contracts.
 
-Embeddable JavaScript widgets that render Sportmonks football data as ready-to-use UI components for livescores, league tables, fixtures, and match details. Designed for media sites and football publishers who want to drop in branded visualizations without building front-end components.
+- [Sportmonks — jsonschema rules](https://apis.io/rules/sportmonks/sportmonks-jsonschema-spectral-rules/)
+- [Sportmonks API Rules](https://apis.io/rules/sportmonks/sportmonks-rules/)
 
-- **Human URL:** [https://www.sportmonks.com/football-widgets/](https://www.sportmonks.com/football-widgets/)
+#### Security (2)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- Embeddable
-- Football
-- Widgets
+- [Sportmonks Authentication](https://apis.io/security/sportmonks/sportmonks-authentication/)
+- [Sportmonks Domain Security](https://apis.io/security/sportmonks/sportmonks-domain-security/)
 
-#### Properties
+#### Plans and pricing (1)
 
-- [Documentation](https://docs.sportmonks.com/football/widgets)
-- [Postman Collection](collections/sportmonks-football.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportmonks-football.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published plans, tiers and prices.
 
-## Common Properties
+- [Sportmonks Plans Pricing](https://apis.io/plans/sportmonks/sportmonks-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Sportmonks Rate Limits](https://apis.io/rate-limits/sportmonks/sportmonks-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Sportmonks Finops](https://apis.io/finops/sportmonks/sportmonks-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.sportmonks.com/)
-- [Portal](https://my.sportmonks.com)
 - [Documentation](https://docs.sportmonks.com/)
-- [Getting Started](https://docs.sportmonks.com/football/welcome/introduction)
-- [Sign Up](https://my.sportmonks.com/register)
+- [Getting started](https://docs.sportmonks.com/football/welcome/introduction)
 - [Pricing](https://www.sportmonks.com/football-api/)
 - [Blog](https://www.sportmonks.com/blogs/)
-- [Status Page](https://www.sportmonks.com/api-status/)
-- [Support](mailto:support@sportmonks.com)
-- [Terms of Service](https://www.sportmonks.com/terms-of-service/)
-- [Privacy Policy](https://www.sportmonks.com/privacy-policy/)
-- [LinkedIn](https://www.linkedin.com/company/sportmonks/)
-- [X Twitter](https://twitter.com/Sportmonks)
-- [GitHub Organization](https://github.com/sportmonks)
-- [Postman Collection](https://cricket-postman.sportmonks.com/) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [JSON Schema](json-schema/sportmonks-fixture-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/sportmonks-team-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/sportmonks-player-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/sportmonks-livescore-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/sportmonks-league-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/sportmonks-fixture-structure.json)
-- [JSON-LD](json-ld/sportmonks-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Spectral Rules](rules/sportmonks-rules.yml)
-- [Vocabulary](vocabulary/sportmonks-vocabulary.yml)
-- [Plans](plans/sportmonks-plans-pricing.yml)
-- [Rate Limits](rate-limits/sportmonks-rate-limits.yml)
-- [Fin Ops](finops/sportmonks-finops.yml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Solutions](undefined)
+- [Terms of service](https://www.sportmonks.com/terms-of-service/)
+- [Privacy policy](https://www.sportmonks.com/privacy-policy/)
+- [GitHub](https://github.com/sportmonks)
+- [Status](https://www.sportmonks.com/api-status/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 50.2** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 55.1 |
+| Contract governance | 27.3 |
+| Operational transparency | 42.1 |
+| Developer ergonomics | 50.0 |
+| Access clarity | 52.6 |
+
+**Agent readiness 25.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/sportmonks/](https://apis.io/providers/sportmonks/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Sportmonks: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/sportmonks/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
